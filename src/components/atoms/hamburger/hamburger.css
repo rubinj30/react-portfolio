@@ -1,5 +1,5 @@
 .hamburger:hover .hamburgerLayer {
-    background: #6a968d;
+    background: #1fa489;
     border-radius: 8px;
 }
 
@@ -19,5 +19,5 @@
 }
 
 .hamburgerContainer:hover{
-    background: white;
+    background: black;
 }
