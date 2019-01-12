@@ -3,19 +3,24 @@ import { Hamburger } from '../../atoms/hamburger/hamburger.component';
 import '../../../App.css';
 
 type Props = {
-    toggleDropdown: (e: React.MouseEvent<HTMLDivElement>) => void;
-    dropdownOpen: boolean;
+    showDropdown: any;
+    isDropdownOpen: boolean;
+    setRef: any;
 };
 
-export const Header = ({ toggleDropdown, dropdownOpen }: Props) => {
+export const Header = ({ showDropdown, isDropdownOpen, setRef }: Props) => {
     return (
         <div className="bg-dark w-100 h3 flex justify-center items-center">
             <div className="w-90 flex justify-between items-center">
                 <div
-                    className={`h3 ph3 flex items-center ${dropdownOpen &&
+                    className={`h3 ph3 flex items-center ${isDropdownOpen &&
                         'bg-metal'}`}
                 >
-                    <Hamburger toggleDropdown={toggleDropdown} />
+                    <Hamburger
+                        showDropdown={showDropdown}
+                        setRef={setRef}
+                        isDropdownOpen={isDropdownOpen}
+                    />
                 </div>
                 <div className="white">Jonathan Rubin</div>
             </div>
