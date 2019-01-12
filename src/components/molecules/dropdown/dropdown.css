@@ -4,3 +4,16 @@
     border-bottom-right-radius: 5px;
     z-index: 3;
 }
+
+.bottomBorderRadius {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.section {
+    height: 50px;
+}
+
+.section:hover {
+    background: #474044;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Hamburger } from '../../atoms/hamburger/hamburger.component';
-import '../../atoms/hamburger/hamburger.css';
+import '../../../App.css';
 
 type Props = {
     toggleDropdown: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -12,8 +12,8 @@ export const Header = ({ toggleDropdown, dropdownOpen }: Props) => {
         <div className="bg-dark w-100 h3 flex justify-center items-center">
             <div className="w-90 flex justify-between items-center">
                 <div
-                    className={`hamburgerContainer h3 ph3 flex items-center ${dropdownOpen &&
-                        'bg-gray'}`}
+                    className={`h3 ph3 flex items-center ${dropdownOpen &&
+                        'bg-metal'}`}
                 >
                     <Hamburger toggleDropdown={toggleDropdown} />
                 </div>

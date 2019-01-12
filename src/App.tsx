@@ -5,7 +5,7 @@ import './App.css';
 
 class App extends Component {
     state = {
-        dropdownOpen: true
+        dropdownOpen: false
     };
 
     toggleDropdown = (e: React.MouseEvent<HTMLDivElement>) => {
