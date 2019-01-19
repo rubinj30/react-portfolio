@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Header } from './components/molecules/header/header.component';
 import { Dropdown } from './components/molecules/dropdown/dropdown.component';
+import { Card } from './components/molecules/card/card.component';
+import { ProjectAccordion } from './components/molecules/accordion/accordion.component';
 import './App.css';
 
 class App extends Component {
@@ -55,6 +57,12 @@ class App extends Component {
                         handleClickOutside={this.handleClickOutside}
                     />
                 )}
+                <div className="ma4">
+                    <Card title="BlackJack">Test</Card>
+                </div>
+                <div className="flex justify-center">
+                    <ProjectAccordion />
+                </div>
             </div>
         );
     }

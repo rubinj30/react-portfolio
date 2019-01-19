@@ -22,7 +22,7 @@ export const Header = ({ showDropdown, isDropdownOpen, setRef }: Props) => {
                         isDropdownOpen={isDropdownOpen}
                     />
                 </div>
-                <div className="white">Jonathan Rubin</div>
+                <div className="white b ph3">Jonathan Rubin</div>
             </div>
         </div>
     );
