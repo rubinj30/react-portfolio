@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Header } from './components/molecules/header/header.component';
 import { Dropdown } from './components/molecules/dropdown/dropdown.component';
-import { Card } from './components/molecules/card/card.component';
-import { ProjectAccordion } from './components/molecules/accordion/accordion.component';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import { HomePage } from './components/pages/home-page/home-page.component';
+import { Projects } from './components/pages/projects/projects.component';
 
 class App extends Component {
     state = {
@@ -22,20 +23,9 @@ class App extends Component {
         });
     };
 
-    showDropdown = () => {
-        this.setState({ isDropdownOpen: true });
-    };
-
-    hideDropdown = () => {
-        this.setState({ isDropdownOpen: false });
-    };
-
     handleClickOutside = (event: MouseEvent) => {
         if (this.wrapRef && !this.wrapRef.contains(event.target)) {
-            console.log('clicking');
-            this.hideDropdown();
-        } else {
-            console.log('not outside');
+            this.toggleDropdown();
         }
     };
 
@@ -45,25 +35,21 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <Header
-                    setRef={this.setRef}
-                    showDropdown={this.showDropdown}
-                    isDropdownOpen={this.state.isDropdownOpen}
-                />
-                {this.state.isDropdownOpen && (
-                    <Dropdown
+            <Router>
+                <div>
+                    <Header
                         setRef={this.setRef}
+                        showDropdown={this.toggleDropdown}
+                        isDropdownOpen={this.state.isDropdownOpen}
                         handleClickOutside={this.handleClickOutside}
                     />
-                )}
-                <div className="ma4">
-                    <Card title="BlackJack">Test</Card>
+                    <Route />
+                    <Switch>
+                        <Route exact path="/" component={HomePage} />
+                        <Route exact path="/projects" component={Projects} />
+                    </Switch>
                 </div>
-                <div className="flex justify-center">
-                    <ProjectAccordion />
-                </div>
-            </div>
+            </Router>
         );
     }
 }

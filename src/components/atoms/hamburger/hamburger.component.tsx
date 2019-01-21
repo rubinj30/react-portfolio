@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './hamburger.css';
 
 type Props = {
+    className?: string;
     showDropdown: any;
     setRef: any;
     isDropdownOpen: boolean;
@@ -9,15 +10,30 @@ type Props = {
 
 export class Hamburger extends Component<Props, {}> {
     render() {
+        const { isDropdownOpen, showDropdown, setRef, className } = this.props;
         return (
             <div
-                className="hamburger"
-                ref={this.props.setRef}
-                onMouseDown={this.props.showDropdown}
+                className={`${className}`}
+                ref={setRef}
+                onMouseDown={showDropdown}
             >
-                <div className="hamburgerLayer w2" />
-                <div className="hamburgerLayer w2" />
-                <div className="hamburgerLayer w2" />
+                <div className="hamburger">
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                    <div className="hamburgerDot" />
+                </div>
+                {isDropdownOpen && (
+                    <>
+                        <div className="arrowTop" />
+                        <div className="arrowBottom" />
+                    </>
+                )}
             </div>
         );
     }
