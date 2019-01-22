@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import './styled-link.css';
 
 type Props = {
     link: string;
-    text: string;
+    text?: string;
     hoverUnderline: boolean;
-    color: Color;
+    color?: Color;
+    children?: ReactNode;
 };
 
 type Color = 'black' | 'white';
 
-export const StyledLink = ({ link, text, hoverUnderline, color }: Props) => {
+export const StyledLink = ({
+    link,
+    text,
+    hoverUnderline,
+    color,
+    children
+}: Props) => {
     let className: any = '';
-    className =+ hoverUnderline ? 'underline-hover' : '';
+    className = +hoverUnderline ? 'underline-hover' : '';
     console.log(className);
     return (
-        <a className={`no-underline ${className} ${color} f6`} href={link}>
+        <Link to={link} className={`no-underline ${className} ${color} f6`}>
             {text}
-        </a>
+            <div>{children}</div>
+        </Link>
     );
 };

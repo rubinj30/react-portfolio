@@ -1,0 +1,15 @@
+.initial {
+    background: rgb(189, 55, 26);
+    border-radius: 50%;
+    color: white;
+}
+
+.small {
+    width: 32px;
+    height: 32px;
+}
+
+.large {
+    width: 50px;
+    height: 50px;
+}

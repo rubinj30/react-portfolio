@@ -4,6 +4,7 @@ import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import { Dropdown } from '../dropdown/dropdown.component';
 import './header.css';
 import '../../../App.css';
+import { UserInitial } from '../../atoms/user-initial/user-initial.component';
 
 type Props = {
     showDropdown: any;
@@ -44,9 +45,10 @@ export const Header = ({
                             />
                         )}
                     </div>
-                    <div className="initial flex justify-center items-center">
+                    {/* <div className="initial flex justify-center items-center">
                         J
-                    </div>
+                    </div> */}
+                    <UserInitial letter="J" size="small" />
                 </div>
             </div>
         </div>

@@ -6,11 +6,3 @@
 .topLink:hover {
     text-decoration: underline;
 }
-
-.initial {
-    background: red;
-    border-radius: 50%;
-    color: white;
-    width: 32px;
-    height: 32px;
-}
