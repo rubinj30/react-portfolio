@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hamburger } from '../../atoms/hamburger/hamburger.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
-import { Dropdown } from '../dropdown/dropdown.component';
+import { PagesDropdown } from '../../organisms/page-dropdown/page-dropdown.component';
 import './header.css';
 import '../../../App.css';
 import { UserInitial } from '../../atoms/user-initial/user-initial.component';
@@ -39,15 +39,12 @@ export const Header = ({
                             isDropdownOpen={isDropdownOpen}
                         />
                         {isDropdownOpen && (
-                            <Dropdown
+                            <PagesDropdown
                                 setRef={setRef}
                                 handleClickOutside={handleClickOutside}
                             />
                         )}
                     </div>
-                    {/* <div className="initial flex justify-center items-center">
-                        J
-                    </div> */}
                     <UserInitial letter="J" size="small" />
                 </div>
             </div>
