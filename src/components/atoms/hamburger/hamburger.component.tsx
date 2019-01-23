@@ -5,12 +5,12 @@ type Props = {
     className?: string;
     showDropdown: any;
     setRef: any;
-    isDropdownOpen: boolean;
+    isPagesDropdownOpen: boolean;
 };
 
 export class Hamburger extends Component<Props, {}> {
     render() {
-        const { isDropdownOpen, showDropdown, setRef, className } = this.props;
+        const { isPagesDropdownOpen, showDropdown, setRef, className } = this.props;
         return (
             <div
                 className={`${className}`}
@@ -28,7 +28,7 @@ export class Hamburger extends Component<Props, {}> {
                     <div className="hamburgerDot" />
                     <div className="hamburgerDot" />
                 </div>
-                {isDropdownOpen && (
+                {isPagesDropdownOpen && (
                     <>
                         <div className="arrowTop" />
                         <div className="arrowBottom" />

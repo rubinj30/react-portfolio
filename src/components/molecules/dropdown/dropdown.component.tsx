@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import './dropdown.css';
 
 type Props = {
     setRef: any;
     handleClickOutside: any;
-    children?: any;
+    children?: ReactNode;
 };
 
 // This is a modular component that can be re-used and passed the contents of the dropdown //#endregion

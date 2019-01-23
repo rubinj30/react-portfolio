@@ -8,14 +8,14 @@ import { UserInitial } from '../../atoms/user-initial/user-initial.component';
 
 type Props = {
     showDropdown: any;
-    isDropdownOpen: boolean;
+    isPagesDropdownOpen: boolean;
     setRef: any;
     handleClickOutside: any;
 };
 
 export const Header = ({
     showDropdown,
-    isDropdownOpen,
+    isPagesDropdownOpen,
     setRef,
     handleClickOutside
 }: Props) => {
@@ -36,9 +36,9 @@ export const Header = ({
                             className={'arrowContainer'}
                             showDropdown={showDropdown}
                             setRef={setRef}
-                            isDropdownOpen={isDropdownOpen}
+                            isPagesDropdownOpen={isPagesDropdownOpen}
                         />
-                        {isDropdownOpen && (
+                        {isPagesDropdownOpen && (
                             <PagesDropdown
                                 setRef={setRef}
                                 handleClickOutside={handleClickOutside}

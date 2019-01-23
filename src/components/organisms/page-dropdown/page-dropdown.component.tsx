@@ -67,7 +67,7 @@ export const PagesDropdown = ({ setRef, handleClickOutside }: Props) => {
             <DropdownSquare
                 link="/"
                 title="Search"
-                className={''}
+                className={'initialContainer'}
                 icon={<UserInitial letter="J" size="large" />}
             />
         </Dropdown>

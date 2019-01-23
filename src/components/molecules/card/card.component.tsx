@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 // import { Link } from 'react-router-dom';
 import './card.css';
 
 type Props = {
     title: string;
     className?: string;
-    children?: string;
+    children?: ReactNode;
 };
 
 export const Card = ({ title, className, children }: Props) => {
@@ -16,7 +16,6 @@ export const Card = ({ title, className, children }: Props) => {
             {/* <Link to={'http://jackblackblackjack.netlify.com'}>
                 image will go here and will be link
             </Link> */}
-            
         </div>
     );
 };

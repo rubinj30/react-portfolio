@@ -8,7 +8,7 @@ import { Projects } from './components/pages/projects/projects.component';
 
 class App extends Component {
     state = {
-        isDropdownOpen: false
+        isPagesDropdownOpen: false
     };
 
     public wrapRef;
@@ -18,8 +18,8 @@ class App extends Component {
     }
 
     toggleDropdown = () => {
-        this.setState(({ isDropdownOpen }: { isDropdownOpen: boolean }) => {
-            return { isDropdownOpen: !isDropdownOpen };
+        this.setState(({ isPagesDropdownOpen }: { isPagesDropdownOpen: boolean }) => {
+            return { isPagesDropdownOpen: !isPagesDropdownOpen };
         });
     };
 
@@ -40,7 +40,7 @@ class App extends Component {
                     <Header
                         setRef={this.setRef}
                         showDropdown={this.toggleDropdown}
-                        isDropdownOpen={this.state.isDropdownOpen}
+                        isPagesDropdownOpen={this.state.isPagesDropdownOpen}
                         handleClickOutside={this.handleClickOutside}
                     />
                     <Route />
