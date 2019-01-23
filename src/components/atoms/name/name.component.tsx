@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Name = () => {
     return (
-        <div className="f1 pa3">
+        <div className="f1 pa3 pt6">
             <Letter text={'J'} color={'blue'} />
             <Letter text={'o'} color={'red'} />
             <Letter text={'n'} color={'green'} />

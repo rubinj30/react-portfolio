@@ -18,9 +18,11 @@ class App extends Component {
     }
 
     toggleDropdown = () => {
-        this.setState(({ isPagesDropdownOpen }: { isPagesDropdownOpen: boolean }) => {
-            return { isPagesDropdownOpen: !isPagesDropdownOpen };
-        });
+        this.setState(
+            ({ isPagesDropdownOpen }: { isPagesDropdownOpen: boolean }) => {
+                return { isPagesDropdownOpen: !isPagesDropdownOpen };
+            }
+        );
     };
 
     handleClickOutside = (event: MouseEvent) => {

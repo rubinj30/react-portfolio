@@ -30,21 +30,25 @@ export const Header = ({
                         text="About"
                     />
                 </div>
-                <div className="flex items-center">
-                    <div>
-                        <Hamburger
-                            className={'arrowContainer'}
-                            showDropdown={showDropdown}
+                <div className="flex items-center pl4 w5 justify-between f6">
+                    <StyledLink
+                        color="black"
+                        hoverUnderline={true}
+                        link={'/projects'}
+                        text="Projects"
+                    />
+                    <Hamburger
+                        className={'arrowContainer'}
+                        showDropdown={showDropdown}
+                        setRef={setRef}
+                        isPagesDropdownOpen={isPagesDropdownOpen}
+                    />
+                    {isPagesDropdownOpen && (
+                        <PagesDropdown
                             setRef={setRef}
-                            isPagesDropdownOpen={isPagesDropdownOpen}
+                            handleClickOutside={handleClickOutside}
                         />
-                        {isPagesDropdownOpen && (
-                            <PagesDropdown
-                                setRef={setRef}
-                                handleClickOutside={handleClickOutside}
-                            />
-                        )}
-                    </div>
+                    )}
                     <UserInitial letter="J" size="small" />
                 </div>
             </div>

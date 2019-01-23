@@ -11,11 +11,8 @@ type Props = {
 export const Card = ({ title, className, children }: Props) => {
     return (
         <div className={`ma3 pa3 card ${className}`}>
-            <div className="f4 pv2">{title}</div>
+            <div className="f4 pv2 tc">{title}</div>
             {children}
-            {/* <Link to={'http://jackblackblackjack.netlify.com'}>
-                image will go here and will be link
-            </Link> */}
         </div>
     );
 };

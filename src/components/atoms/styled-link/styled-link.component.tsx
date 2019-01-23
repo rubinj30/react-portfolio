@@ -21,7 +21,6 @@ export const StyledLink = ({
 }: Props) => {
     let className: any = '';
     className = +hoverUnderline ? 'underline-hover' : '';
-    console.log(className);
     return (
         <Link to={link} className={`no-underline ${className} ${color} f6`}>
             {text}
