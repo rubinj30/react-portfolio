@@ -11,7 +11,7 @@ type Props = {
 export const Card = ({ title, className, children }: Props) => {
     return (
         <div className={`ma3 pa3 card ${className}`}>
-            <div className="f4 pv2 tc">{title}</div>
+            <div className="f4 pv3 tc">{title}</div>
             {children}
         </div>
     );
