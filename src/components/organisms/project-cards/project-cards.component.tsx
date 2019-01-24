@@ -5,19 +5,22 @@ import polaroid from '../../../images/polaroid2.png';
 import connect4 from '../../../images/connect4.png';
 import './project-cards.css';
 
-export const ProjectCard = ({ title, link, github, image }) => {
+export const ProjectCard = ({ title, link, github, image, description }) => {
     return (
         <Card title={title}>
-            <img
-                className={`w-50 mb2 cardImg ${image.style}`}
-                src={image.name}
-            />
+            <div className="flex">
+                <img
+                    className={`w-40 h-100 mb2 cardImg ${image.style}`}
+                    src={image.name}
+                />
+                <p className="pl3 f7 f6-ns">{description}</p>
+            </div>
             <div className="mv2 flex justify-around">
-                <a href={link} className="no-underline hover-underline w-45">
-                    <button className="w-100">Check Out App</button>
+                <a href={link} className="no-underline hover-underline w-40">
+                    <button className="w-100 f7 f6-ns">Go To App</button>
                 </a>
-                <a href={github} className="no-underline hover-underline w-45">
-                    <button className="w-100">See GitHub Repo</button>
+                <a href={github} className="no-underline hover-underline w-40">
+                    <button className="w-100 f7 f6-ns">See GitHub</button>
                 </a>
             </div>
         </Card>
@@ -26,18 +29,21 @@ export const ProjectCard = ({ title, link, github, image }) => {
 
 export const ProjectCards = () => {
     return (
-        <div className="flex flex-wrap">
-            {projects.map((project, i) => {
-                return (
-                    <ProjectCard
-                        key={i}
-                        title={project.title}
-                        link={project.link}
-                        github={project.github}
-                        image={project.image}
-                    />
-                );
-            })}
+        <div className="flex justify-center">
+            <div className="flex flex-wrap">
+                {projects.map((project, i) => {
+                    return (
+                        <ProjectCard
+                            key={i}
+                            title={project.title}
+                            link={project.link}
+                            github={project.github}
+                            image={project.image}
+                            description={project.description}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 };
@@ -50,7 +56,8 @@ const projects = [
         image: {
             name: connect4,
             style: 'br1'
-        }
+        },
+        description: ''
     },
     {
         title: 'Connect 4',
@@ -59,16 +66,8 @@ const projects = [
         image: {
             name: connect4,
             style: 'br1'
-        }
-    },
-    {
-        title: 'Jack Black BlackJack',
-        link: 'https://jackblackblackjack.netlify.com/',
-        github: 'https://github.com/rubinj30/Blackjack',
-        image: {
-            name: jb_card,
-            style: 'br2'
-        }
+        },
+        description: ''
     },
     {
         title: 'Partner-in-climb',
@@ -77,7 +76,9 @@ const projects = [
         image: {
             name: polaroid,
             style: 'br1'
-        }
+        },
+        description:
+            'This was designed to help rock climbers find climbing partners. It was my first time using Express.js and having full CRUD for on 3 nested data models. I also learned the basics of how website routing works.'
     },
     {
         title: 'Jack Black BlackJack',
@@ -86,15 +87,8 @@ const projects = [
         image: {
             name: jb_card,
             style: 'br1'
-        }
-    },
-    {
-        title: 'Jack Black BlackJack',
-        link: 'https://jackblackblackjack.netlify.com/',
-        github: 'https://github.com/rubinj30/Blackjack',
-        image: {
-            name: jb_card,
-            style: 'br1'
-        }
+        },
+        description:
+            'This was the first web app I ever built. It is a fully-functioning version of Blackjack, complete with betting.'
     }
 ];

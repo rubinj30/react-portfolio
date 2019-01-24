@@ -29,7 +29,7 @@ button {
     color: #757575;
     cursor: pointer;
     font-family: arial, sans-serif;
-    font-size: 13px;
+    /* font-size: 13px; */
     font-weight: bold;
     margin: 11px 4px;
     min-width: 54px;
