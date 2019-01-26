@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '../../molecules/card/card.component';
+import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import jb_card from '../../../images/JB_card.jpg';
 import polaroid from '../../../images/polaroid2.png';
 import connect4 from '../../../images/connect4.png';
@@ -16,12 +17,16 @@ export const ProjectCard = ({ title, link, github, image, description }) => {
                 <p className="pl3 f7 f6-ns">{description}</p>
             </div>
             <div className="mv2 flex justify-around">
-                <a href={link} className="no-underline hover-underline w-40">
+                <StyledLink hoverUnderline={true} link={link} className="w-40">
                     <button className="w-100 f7 f6-ns">Go To App</button>
-                </a>
-                <a href={github} className="no-underline hover-underline w-40">
+                </StyledLink>
+                <StyledLink
+                    link={github}
+                    hoverUnderline={true}
+                    className="w-40"
+                >
                     <button className="w-100 f7 f6-ns">See GitHub</button>
-                </a>
+                </StyledLink>
             </div>
         </Card>
     );
@@ -30,7 +35,7 @@ export const ProjectCard = ({ title, link, github, image, description }) => {
 export const ProjectCards = () => {
     return (
         <div className="flex justify-center">
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
                 {projects.map((project, i) => {
                     return (
                         <ProjectCard

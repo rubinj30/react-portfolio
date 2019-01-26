@@ -8,6 +8,9 @@ type Props = {
     hoverUnderline: boolean;
     color?: Color;
     children?: ReactNode;
+    history?: any;
+    handleClick?: any;
+    className?: string;
 };
 
 type Color = 'black' | 'white';
@@ -17,14 +20,35 @@ export const StyledLink = ({
     text,
     hoverUnderline,
     color,
-    children
+    children,
+    handleClick,
+    history,
+    className
 }: Props) => {
-    let className: any = '';
-    className = +hoverUnderline ? 'underline-hover' : '';
-    return (
-        <Link to={link} className={`no-underline ${className} ${color} f6`}>
-            {text}
-            <div>{children}</div>
-        </Link>
-    );
+    let style: any = '';
+    style =+ hoverUnderline ? 'underline-hover' : '';
+    console.log('history', history);
+    if (link && link.startsWith('/')) {
+        return (
+            <Link
+                to={link}
+                className={`no-underline ${className} ${style} ${color} f6`}
+                onClick={handleClick}
+            >
+                {text}
+                <div>{children}</div>
+            </Link>
+        );
+    } else {
+        return (
+            <a
+                href={link}
+                className={`no-underline ${className} ${color} f6`}
+                onClick={handleClick}
+            >
+                {text}
+                <div>{children}</div>
+            </a>
+        );
+    }
 };

@@ -1,15 +1,13 @@
 import React, { ReactNode } from 'react';
-import { First, Last } from '../../atoms/name/name.component';
+import { FullName } from '../../atoms/name/name.component';
+import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import './contact.css';
 
 export const Contact = () => {
     return (
         <div className="flex flex-column items-center justify-center">
-            <div className="flex">
-                <First className="pv4" />
-                <Last className="pv4" />
-            </div>
+            <FullName />
             <div className="flex flex-column justify-center">
                 <ContactItem
                     text="jonathan.a.rubin@gmail.com"
@@ -39,8 +37,12 @@ const ContactItem = ({
     icon: ReactNode;
     text?: string;
 }) => (
-    <a href={link} className="linkWrapper flex justify-center items-center">
+    <StyledLink
+        link={link}
+        hoverUnderline={true}
+        className="linkWrapper flex justify-center items-center"
+    >
         {icon}
         <div className="contactItem">{text || link}</div>
-    </a>
+    </StyledLink>
 );

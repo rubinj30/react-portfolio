@@ -1,5 +1,9 @@
 import React from 'react';
 
+export const Letter = ({ color, text }) => (
+    <span className={color}>{text}</span>
+);
+
 export const First = ({ className }: { className?: string }) => {
     return (
         <div className={`f1 pa2 pt ${className}`}>
@@ -15,10 +19,6 @@ export const First = ({ className }: { className?: string }) => {
     );
 };
 
-export const Letter = ({ color, text }) => (
-    <span className={color}>{text}</span>
-);
-
 export const Last = ({ className }: { className?: string }) => {
     return (
         <div className={`f1 pa2 pt ${className}`}>
@@ -30,3 +30,10 @@ export const Last = ({ className }: { className?: string }) => {
         </div>
     );
 };
+
+export const FullName = () => (
+    <div className="flex">
+        <First className="pv4" />
+        <Last className="pv4" />
+    </div>
+);
