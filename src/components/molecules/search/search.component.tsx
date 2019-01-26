@@ -5,6 +5,10 @@ import './search.css';
 type State = {
     searchText: string;
     areResultsShowing: boolean;
+    hoveredIndex: number;
+    // change this to an array of the results
+    //
+    results: any;
 };
 
 const fakeResults = [
@@ -19,7 +23,9 @@ const fakeResults = [
 export class Search extends Component<{}, State> {
     state = {
         searchText: '',
-        areResultsShowing: false
+        areResultsShowing: false,
+        hoveredIndex: -1,
+        results: fakeResults
     };
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,8 +35,44 @@ export class Search extends Component<{}, State> {
         this.setState({ searchText, areResultsShowing });
     };
 
+    handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        const { searchText } = this.state;
+        console.log(e.key);
+        e.key === 'Escape' && this.closeResults();
+        e.key === 'ArrowDown' && this.arrowDown();
+        e.key === 'ArrowUp' && this.arrowUp();
+        // if esc
+        // if delete | backspace | e.which === 32
+        // ArrowDown
+        // ArrowUp
+    };
+
+    closeResults = () => {
+        this.setState({ areResultsShowing: false });
+    };
+
+    arrowDown = () => {
+        this.setState(({ hoveredIndex }: { hoveredIndex: number }) => {
+            const newIndex =
+                hoveredIndex < this.state.results.length - 1
+                    ? hoveredIndex + 1
+                    : 0;
+            console.log(newIndex);
+            return { hoveredIndex: newIndex };
+        });
+    };
+    arrowUp = () => {
+        this.setState(({ hoveredIndex }: { hoveredIndex: number }) => {
+            const newIndex =
+                hoveredIndex > 0
+                    ? hoveredIndex - 1
+                    : this.state.results.length - 1;
+            console.log(newIndex);
+            return { hoveredIndex: newIndex };
+        });
+    };
     render() {
-        const { searchText, areResultsShowing } = this.state;
+        const { areResultsShowing, hoveredIndex } = this.state;
         return (
             <div
                 className={`containerWrapper relative ${areResultsShowing &&
@@ -40,22 +82,32 @@ export class Search extends Component<{}, State> {
                     <input
                         placeholder="Search here"
                         onChange={this.handleChange}
+                        onKeyUp={this.handleKeyUp}
                     />
                 </div>
-                {searchText.length > 2 ? (
+                {areResultsShowing && (
                     <div
                         className={`w-97 resultsContainer absolute  ${areResultsShowing &&
                             'flatTopBr'}`}
                     >
                         {fakeResults.map((result, i) => {
-                            return <div key={i}>{result.text}</div>;
+                            return (
+                                <div
+                                    key={i}
+                                    className={`result ${
+                                        hoveredIndex === i ? 'grayBg' : ''
+                                    }
+                                    `}
+                                >
+                                    {result.text}
+                                </div>
+                            );
                         })}
                         <div className="flex justify-center">
                             <Button label="Jonathan Search" />
                         </div>
                     </div>
-                ) : null}
-                {/* <Button label="Jonathan Search" /> */}
+                )}
             </div>
         );
     }

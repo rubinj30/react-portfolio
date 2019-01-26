@@ -10,6 +10,9 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+.grayBg {
+    background: #eee;
+}
 
 .searchContainer {
     height: 40px;
@@ -24,8 +27,11 @@ input {
     width: 93%;
 }
 
+.result {
+    padding: 3px 10px;
+}
+
 .resultsContainer {
-    padding: 10px;
     border-top: 1px solid lightgray;
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.26);
     outline: 0;
@@ -33,7 +39,7 @@ input {
     max-width: 484px;
     width: 100%;
     background: white;
-    z-index: 5;
+    z-index: 3;
 }
 
 .flatTopBr {
