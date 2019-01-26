@@ -42,7 +42,9 @@ const ContactItem = ({
         hoverUnderline={true}
         className="linkWrapper flex justify-center items-center"
     >
-        {icon}
-        <div className="contactItem">{text || link}</div>
+        <div className="flex">
+            <div>{icon}</div>
+            <div className="contactItem">{text || link}</div>
+        </div>
     </StyledLink>
 );

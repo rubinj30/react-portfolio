@@ -42,7 +42,7 @@ class App extends Component {
                 <div>
                     <Header
                         setRef={this.setRef}
-                        showDropdown={this.toggleDropdown}
+                        toggleDropdown={this.toggleDropdown}
                         isPagesDropdownOpen={this.state.isPagesDropdownOpen}
                         handleClickOutside={this.handleClickOutside}
                     />

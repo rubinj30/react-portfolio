@@ -3,19 +3,19 @@ import './hamburger.css';
 
 type Props = {
     className?: string;
-    showDropdown: any;
+    toggleDropdown: any;
     setRef: any;
     isPagesDropdownOpen: boolean;
 };
 
 export class Hamburger extends Component<Props, {}> {
     render() {
-        const { isPagesDropdownOpen, showDropdown, setRef, className } = this.props;
+        const { isPagesDropdownOpen, toggleDropdown, setRef, className } = this.props;
         return (
             <div
                 className={`${className}`}
                 ref={setRef}
-                onMouseDown={showDropdown}
+                onMouseDown={toggleDropdown}
             >
                 <div className="hamburger">
                     <div className="hamburgerDot" />

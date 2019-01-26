@@ -7,17 +7,17 @@ import '../../../App.css';
 import { UserInitial } from '../../atoms/user-initial/user-initial.component';
 
 type Props = {
-    showDropdown: any;
+    toggleDropdown: any;
     isPagesDropdownOpen: boolean;
     setRef: any;
     handleClickOutside: any;
 };
 
 export const Header = ({
-    showDropdown,
+    toggleDropdown,
     isPagesDropdownOpen,
     setRef,
-    handleClickOutside
+    handleClickOutside,
 }: Props) => {
     return (
         <div className="w-100 h3 flex justify-center items-center">
@@ -39,7 +39,7 @@ export const Header = ({
                     />
                     <Hamburger
                         className={'arrowContainer'}
-                        showDropdown={showDropdown}
+                        toggleDropdown={toggleDropdown}
                         setRef={setRef}
                         isPagesDropdownOpen={isPagesDropdownOpen}
                     />
@@ -47,6 +47,7 @@ export const Header = ({
                         <PagesDropdown
                             setRef={setRef}
                             handleClickOutside={handleClickOutside}
+                            toggleDropdown={toggleDropdown}
                         />
                     )}
                     <UserInitial letter="J" size="small" />

@@ -29,6 +29,7 @@ export const StyledLink = ({
     style =+ hoverUnderline ? 'underline-hover' : '';
     console.log('history', history);
     if (link && link.startsWith('/')) {
+        console.log('used LINK')
         return (
             <Link
                 to={link}
@@ -36,7 +37,7 @@ export const StyledLink = ({
                 onClick={handleClick}
             >
                 {text}
-                <div>{children}</div>
+                <div className="flex flex-row justify-between">{children}</div>
             </Link>
         );
     } else {
