@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Header } from './components/molecules/header/header.component';
-import { Dropdown } from './components/molecules/dropdown/dropdown.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
 import { HomePage } from './components/pages/home-page/home-page.component';
 import { Projects } from './components/pages/projects/projects.component';
+import { About } from './components/pages/about/about.component';
+import { Contact } from './components/pages/contact/contact.component';
+import './App.css';
 
 class App extends Component {
     state = {
@@ -49,6 +50,8 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={HomePage} />
                         <Route exact path="/projects" component={Projects} />
+                        <Route exact path="/about" component={About} />
+                        <Route exact path="/contact" component={Contact} />
                     </Switch>
                 </div>
             </Router>

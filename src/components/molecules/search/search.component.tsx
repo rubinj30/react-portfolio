@@ -7,8 +7,12 @@ type State = {
 };
 
 const fakeResults = [
-    { text: 'result 1', link: '/test' },
-    { text: 'result 2qijwiojdf', link: '/test' }
+    { text: 'projects', link: '/projects' },
+    { text: 'work', link: '/projects' },
+    { text: 'about', link: '/about' },
+    { text: 'contact', link: '/contact' },
+    { text: 'work', link: '/projects' },
+    { text: 'work', link: '/projects' }
 ];
 
 export class Search extends Component<{}, State> {
@@ -32,7 +36,7 @@ export class Search extends Component<{}, State> {
                     />
                 </div>
                 {searchText.length > 2 ? (
-                    <div className="w-97 h3 h-3 resultsContainer">
+                    <div className="w-97 resultsContainer">
                         {fakeResults.map((result, i) => {
                             return <div key={i}>{result.text}</div>;
                         })}

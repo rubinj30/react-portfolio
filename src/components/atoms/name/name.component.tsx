@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const Name = () => {
+export const First = ({ className }: { className?: string }) => {
     return (
-        <div className="f1 pa3 pt6">
+        <div className={`f1 pa2 pt ${className}`}>
             <Letter text={'J'} color={'blue'} />
             <Letter text={'o'} color={'red'} />
             <Letter text={'n'} color={'green'} />
@@ -18,3 +18,15 @@ export const Name = () => {
 export const Letter = ({ color, text }) => (
     <span className={color}>{text}</span>
 );
+
+export const Last = ({ className }: { className?: string }) => {
+    return (
+        <div className={`f1 pa2 pt ${className}`}>
+            <Letter text={'R'} color={'blue'} />
+            <Letter text={'u'} color={'red'} />
+            <Letter text={'b'} color={'green'} />
+            <Letter text={'i'} color={'blue'} />
+            <Letter text={'n'} color={'yellow'} />
+        </div>
+    );
+};
