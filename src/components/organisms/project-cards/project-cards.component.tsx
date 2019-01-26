@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from '../../molecules/card/card.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
+import { Button } from '../../atoms/button/button.component';
 import jb_card from '../../../images/JB_card.jpg';
 import polaroid from '../../../images/polaroid2.png';
 import connect4 from '../../../images/connect4.png';
@@ -18,14 +19,14 @@ export const ProjectCard = ({ title, link, github, image, description }) => {
             </div>
             <div className="mv2 flex justify-around">
                 <StyledLink hoverUnderline={true} link={link} className="w-40">
-                    <button className="w-100 f7 f6-ns">Go To App</button>
+                    <Button className="w-100 f7 f6-ns" label="Go To App" />
                 </StyledLink>
                 <StyledLink
                     link={github}
                     hoverUnderline={true}
                     className="w-40"
                 >
-                    <button className="w-100 f7 f6-ns">See GitHub</button>
+                    <Button className="w-100 f7 f6-ns" label="See GitHub" />
                 </StyledLink>
             </div>
         </Card>

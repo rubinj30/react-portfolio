@@ -27,9 +27,7 @@ export const StyledLink = ({
 }: Props) => {
     let style: any = '';
     style =+ hoverUnderline ? 'underline-hover' : '';
-    console.log('history', history);
     if (link && link.startsWith('/')) {
-        console.log('used LINK')
         return (
             <Link
                 to={link}

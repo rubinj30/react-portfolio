@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from '../../atoms/button/button.component';
 import './search.css';
 
 type State = {
@@ -22,26 +23,39 @@ export class Search extends Component<{}, State> {
     };
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({ searchText: e.currentTarget.value });
+        const searchText: string = e.currentTarget.value;
+        const areResultsShowing: boolean =
+            searchText && searchText.length > 1 ? true : false;
+        this.setState({ searchText, areResultsShowing });
     };
 
     render() {
-        const { searchText } = this.state;
+        const { searchText, areResultsShowing } = this.state;
         return (
-            <div className="containerWrapper">
-                <div className="searchContainer">
+            <div
+                className={`containerWrapper relative ${areResultsShowing &&
+                    'flatBottomBr'}`}
+            >
+                <div className={`searchContainer`}>
                     <input
                         placeholder="Search here"
                         onChange={this.handleChange}
                     />
                 </div>
                 {searchText.length > 2 ? (
-                    <div className="w-97 resultsContainer">
+                    <div
+                        className={`w-97 resultsContainer absolute  ${areResultsShowing &&
+                            'flatTopBr'}`}
+                    >
                         {fakeResults.map((result, i) => {
                             return <div key={i}>{result.text}</div>;
                         })}
+                        <div className="flex justify-center">
+                            <Button label="Jonathan Search" />
+                        </div>
                     </div>
                 ) : null}
+                {/* <Button label="Jonathan Search" /> */}
             </div>
         );
     }

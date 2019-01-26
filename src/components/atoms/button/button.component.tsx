@@ -1,5 +1,6 @@
 import React from 'react';
-import './atoms.css';
+import './button.css'
+
 // using standard HTML button types
 type Type = 'submit' | 'reset' | 'button';
 
@@ -18,7 +19,7 @@ export const Button = ({
     return (
         <button
             type={type}
-            className={`pointer tc pa2 br2 hover-bg-blue hover-white bg-white f5 ${className}`}
+            className={`pointer tc ${className}`}
             onClick={onClick}
         >
             {label}
