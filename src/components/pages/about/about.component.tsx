@@ -1,6 +1,7 @@
 import React from 'react';
 import { FullName } from '../../atoms/name/name.component';
 import Picture from '../../../images/JonathanRubin.jpg';
+import { Card } from '../../molecules/card/card.component';
 import './about.css';
 
 export const About = () => {
@@ -9,11 +10,9 @@ export const About = () => {
             <div className="flex flex-column justify-center items-center w-90 w-70-l">
                 <FullName />
                 <div className="pb4">
-                    <img
-                        className="profilePic"
-                        src={Picture}
-                        alt={'Photo of Jonathan Rubin'}
-                    />
+                    <Card className="profilePic">
+                        <img src={Picture} alt={'Photo of Jonathan Rubin'} />
+                    </Card>
                     <p className="pt0 mt0">
                         I am a Full Stack Developer based in Atlanta, GA. I have
                         a background in data analytics and after dealing with
@@ -24,11 +23,11 @@ export const About = () => {
                         weekends coding and working on self-directed side
                         projects for work. At first it was things I was
                         previously doing with macros, formulas or manually, but
-                        soon I was looping through API calls to fetch and append
-                        additional data to these lists and wrote scripts to pull
-                        data from multiple sources and send out daily e-mails.
+                        soon I was looping through API calls to fetch additional
+                        information about prospective customers for our sales
+                        team and setting up our daily reports to be pulled and
+                        sent out automatically.
                     </p>
-
                     <p>
                         Eventually, I decided I had to pursue this new-found
                         passion and change careers. After much consideration, I

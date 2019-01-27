@@ -11,7 +11,6 @@ export const seeds = [
     // },
     { text: 'about', link: '/about', keywords: ['about', 'jonathan', ''] },
     { text: 'github', link: 'https://github.com/rubinj30', keywords: ['about', 'jonathan', ''] },
-    { text: 'about', link: '/about', keywords: ['about', 'jonathan', ''] },
     {
         text: 'contact',
         link: '/contact',
@@ -31,5 +30,6 @@ export const seeds = [
         ]
     },
     { text: 'jonathan', link: '/projects', keywords: [] },
-    { text: 'work', link: '/projects', keywords: [] }
+    { text: 'work', link: '/projects', keywords: [] },
+
 ];
