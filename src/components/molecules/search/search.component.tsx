@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from '../../atoms/button/button.component';
+import { seeds } from './seeds';
+import { Dropdown } from '../dropdown/dropdown.component';
 import './search.css';
 
 type State = {
@@ -8,24 +10,21 @@ type State = {
     hoveredIndex: number;
     // change this to an array of the results
     //
-    results: any;
+    results: Result[];
 };
 
-const fakeResults = [
-    { text: 'projects', link: '/projects' },
-    { text: 'work', link: '/projects' },
-    { text: 'about', link: '/about' },
-    { text: 'contact', link: '/contact' },
-    { text: 'work', link: '/projects' },
-    { text: 'work', link: '/projects' }
-];
+type Result = {
+    text: string;
+    link: string;
+    keywords: string[] | [];
+};
 
 export class Search extends Component<{}, State> {
     state = {
         searchText: '',
         areResultsShowing: false,
         hoveredIndex: -1,
-        results: fakeResults
+        results: seeds
     };
 
     handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,14 +40,18 @@ export class Search extends Component<{}, State> {
         e.key === 'Escape' && this.closeResults();
         e.key === 'ArrowDown' && this.arrowDown();
         e.key === 'ArrowUp' && this.arrowUp();
-        // if esc
-        // if delete | backspace | e.which === 32
-        // ArrowDown
-        // ArrowUp
+        e.key === 'Enter' && this.takeToResult();
+    };
+
+    takeToResult = () => {
+        const { searchText, hoveredIndex, results } = this.state;
+        if (hoveredIndex >= 0) {
+            window.location.assign(results[hoveredIndex].link);
+        }
     };
 
     closeResults = () => {
-        this.setState({ areResultsShowing: false });
+        this.setState({ areResultsShowing: false, hoveredIndex: -1 });
     };
 
     arrowDown = () => {
@@ -61,6 +64,7 @@ export class Search extends Component<{}, State> {
             return { hoveredIndex: newIndex };
         });
     };
+
     arrowUp = () => {
         this.setState(({ hoveredIndex }: { hoveredIndex: number }) => {
             const newIndex =
@@ -71,6 +75,17 @@ export class Search extends Component<{}, State> {
             return { hoveredIndex: newIndex };
         });
     };
+
+    handleResultMouseEnter = index => () => {
+        this.setState({ hoveredIndex: index });
+    };
+
+    handleResultClick = async i => {
+        console.log('woo')
+        await this.setState({ hoveredIndex: i });
+        this.takeToResult();
+    };
+
     render() {
         const { areResultsShowing, hoveredIndex } = this.state;
         return (
@@ -86,29 +101,50 @@ export class Search extends Component<{}, State> {
                     />
                 </div>
                 {areResultsShowing && (
-                    <div
-                        className={`w-97 resultsContainer absolute  ${areResultsShowing &&
-                            'flatTopBr'}`}
-                    >
-                        {fakeResults.map((result, i) => {
-                            return (
-                                <div
-                                    key={i}
-                                    className={`result ${
-                                        hoveredIndex === i ? 'grayBg' : ''
-                                    }
-                                    `}
-                                >
-                                    {result.text}
-                                </div>
-                            );
-                        })}
-                        <div className="flex justify-center">
-                            <Button label="Jonathan Search" />
-                        </div>
-                    </div>
+                    <SearchResults
+                        handleResultClick={this.handleResultClick}
+                        areResultsShowing={areResultsShowing}
+                        hoveredIndex={hoveredIndex}
+                        handleResultMouseEnter={this.handleResultMouseEnter}
+                    />
                 )}
             </div>
         );
     }
 }
+
+const SearchResults = ({
+    areResultsShowing,
+    handleResultMouseEnter,
+    hoveredIndex,
+    handleResultClick
+}: {
+    areResultsShowing: boolean;
+    handleResultMouseEnter: Function;
+    hoveredIndex: number;
+    handleResultClick: any;
+}) => {
+    return (
+        <div
+            className={`w-97 resultsContainer absolute  ${areResultsShowing &&
+                'flatTopBr'}`}
+        >
+            {seeds.map((result, i) => {
+                return (
+                    <div
+                        key={i}
+                        onMouseEnter={handleResultMouseEnter(i)}
+                        onClick={() => handleResultClick(i)}
+                        className={`result ${hoveredIndex === i ? 'grayBg' : ''}
+                    `}
+                    >
+                        {result.text}
+                    </div>
+                );
+            })}
+            <div className="flex justify-center">
+                <Button label="Jonathan Search" />
+            </div>
+        </div>
+    );
+};
