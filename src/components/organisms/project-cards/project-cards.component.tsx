@@ -12,6 +12,7 @@ export const ProjectCard = ({ title, link, github, image, description }) => {
         <Card title={title}>
             <div className="flex">
                 <img
+                    alt="example photo of project"
                     className={`w-40 h-100 mb2 cardImg ${image.style}`}
                     src={image.name}
                 />
