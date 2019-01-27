@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-// import { Link } from 'react-router-dom';
 import './card.css';
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
 export const Card = ({ title, className, children }: Props) => {
     return (
         <div className={`ma3 pa3 card ${className}`}>
-            {title && <div className="f4 pv3 tc">{title}</div>}
+            {title && <div className="b f4 pv3 tc">{title}</div>}
             {children}
         </div>
     );

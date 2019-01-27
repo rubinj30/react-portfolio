@@ -1,5 +1,5 @@
 .profilePic {
-    width: 8rem;
+    width: 9rem;
     height: 100%;
     float: left;
     margin: 0 20px 10px 0;
@@ -7,4 +7,8 @@
     /* border-radius: 50%; */
     /* shape-outside: circle(50%); */
     /* margin: 10 auto; */
+}
+
+.profilePic img {
+    border-radius: 2px;
 }

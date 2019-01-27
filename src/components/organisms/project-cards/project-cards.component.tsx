@@ -10,17 +10,17 @@ import './project-cards.css';
 export const ProjectCard = ({ title, link, github, image, description }) => {
     return (
         <Card title={title}>
-            <div className="flex">
+            <div className="flex flex-column items-center">
                 <img
                     alt="example photo of project"
-                    className={`w-40 h-100 mb2 cardImg ${image.style}`}
+                    className={`w-90 h-100 mb2 cardImg ${image.style}`}
                     src={image.name}
                 />
                 <p className="pl3 f7 f6-ns">{description}</p>
             </div>
             <div className="mv2 flex justify-around">
                 <StyledLink hoverUnderline={true} link={link} className="w-40">
-                    <Button className="w-100 f7 f6-ns" label="Go To App" />
+                    <Button className="w-100 f7 f6-ns" label="Visit Website" />
                 </StyledLink>
                 <StyledLink
                     link={github}
@@ -64,7 +64,11 @@ const projects = [
             name: connect4,
             style: 'br1'
         },
-        description: ''
+        description:
+            'This was my attempt to make an app on which I could easily track the performance of my investments.\
+            Most investment applications provide a lot of information and you can trade securities from it. \
+            But the user-interfaces are usually horrible and typically people are just checking the performance of their stocks, or for any news related to them.\
+            '
     },
     {
         title: 'Connect 4',

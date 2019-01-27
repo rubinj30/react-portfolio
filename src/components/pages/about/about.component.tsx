@@ -13,10 +13,22 @@ export const About = () => {
                     <Card className="profilePic">
                         <img src={Picture} alt={'Photo of Jonathan Rubin'} />
                     </Card>
-                    <p className="pt0 mt0">
-                        I am a Full Stack Developer based in Atlanta, GA. I have
-                        a background in data analytics and after dealing with
-                        Excel constantly getting slowed down by the larger
+                    <h3 className="mv0">About Me</h3>
+                    <p>
+                        I am a full-stack developer based in Atlanta, GA. I work
+                        at Supply.com rebuilding the front-end of the e-commerce
+                        website with React, Typescript, GraphQL/Apollo, and
+                        Jest/Enzyme.
+                    </p>
+                    <p>
+                        In my free time, I like to rock climb around the
+                        Southeast, eat chicken wings around Atlanta, and of
+                        course write code.
+                    </p>
+                    <h4>My story</h4>
+                    <p>
+                        I have a background in data analytics and after dealing
+                        with Excel constantly getting slowed down by the larger
                         datasets I was working with, I discovered Python. The
                         more I worked in Python, the more I found myself using
                         it for automating processes. I started spending my
@@ -44,11 +56,6 @@ export const About = () => {
                         platform and front-end using cutting-edge technologies.
                         It has been amazing to work with and learn from other
                         programmers and build something together.
-                    </p>
-                    <p>
-                        In my free time, I like to go rock climbing, eat wings,
-                        watch HBO Sunday night shows, dream of getting a dog
-                        when I have more free time, and of course write code.
                     </p>
                 </div>
             </div>
