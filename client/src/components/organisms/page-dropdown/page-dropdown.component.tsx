@@ -24,7 +24,8 @@ const DropdownSquare = ({
     link?: string;
     toggleDropdown?: (e: React.MouseEvent<any>) => void;
 }) => {
-    const iconLink = link ? link : title.toLowerCase();
+    const iconLink = link ? link : `/${title.toLowerCase()}`;
+    console.log(iconLink)
     return (
         <StyledLink
             link={iconLink}

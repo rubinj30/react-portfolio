@@ -89,7 +89,7 @@ const projects = [
             style: 'br1'
         },
         description:
-            'This was designed to help rock climbers find climbing partners. It was my first time using Express.js and having full CRUD for on 3 nested data models. I also learned the basics of how website routing works.'
+            'This was designed to help rock climbers find climbing partners. It was my first time using ExpressP and having full CRUD for on 3 nested data models. I also learned the basics of how website routing works.'
     },
     {
         title: 'Jack Black BlackJack',
