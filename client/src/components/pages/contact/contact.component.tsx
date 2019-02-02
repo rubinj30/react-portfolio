@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { FullName } from '../../atoms/name/name.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
-// import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import './contact.css';
 
 export const Contact = () => {
@@ -12,15 +12,15 @@ export const Contact = () => {
                 <ContactItem
                     text="jonathan.a.rubin@gmail.com"
                     link="mailto:jonathan.a.rubin@gmail.com"
-                    icon={<div className="bg-red h2 w2" />}
+                    icon={<FaEnvelope />}
                 />
                 <ContactItem
                     link="https://github.com/rubinj30"
-                    icon={<div className="bg-red h2 w2" />}
+                    icon={<FaGithub />}
                 />
                 <ContactItem
                     link="https://www.linkedin.com/in/jonathan-rubin/"
-                    icon={<div className="bg-red h2 w2" />}
+                    icon={<FaLinkedin />}
                     text="LinkedIn Profile"
                 />
             </div>
