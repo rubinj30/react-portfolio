@@ -1,27 +1,32 @@
 {
-  "name": "react-portfolio-site",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rubinj30/portfolio-2.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rubinj30/portfolio-2/issues"
-  },
-  "homepage": "https://github.com/rubinj30/portfolio-2#readme",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "concurrently": "^4.1.0",
-    "dotenv": "^6.2.0",
-    "express": "^4.16.4",
-    "mongoose": "^5.4.9"
-  }
+    "name": "react-portfolio-site",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "engines": {
+        "node": "11.1.0"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "dev": "concurrently \"node server.js\" \"cd client && npm start\"",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "cd client && npm i && npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rubinj30/portfolio-2.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rubinj30/portfolio-2/issues"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "concurrently": "^4.1.0",
+        "dotenv": "^6.2.0",
+        "express": "^4.16.4",
+        "mongoose": "^5.4.9"
+    }
 }
