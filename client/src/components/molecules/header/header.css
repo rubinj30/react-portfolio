@@ -6,3 +6,9 @@
 .topLink:hover {
     text-decoration: underline;
 }
+
+.headerSearch {
+    border-radius: 20px;
+    padding-left: 20px;
+    width: 220px;
+}

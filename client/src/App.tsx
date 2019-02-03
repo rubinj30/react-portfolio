@@ -18,7 +18,7 @@ class App extends Component<{}, State> {
                 <div>
                     <Header />
                     <Switch>
-                        <Route exact path="/" component={HomePage} />
+                        <Route exact match={''} path="/" component={HomePage} />
                         <Route exact path="/projects" component={Projects} />
                         <Route exact path="/about" component={About} />
                         <Route exact path="/contact" component={Contact} />

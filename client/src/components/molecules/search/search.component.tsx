@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { SearchResults } from '../search-results/search-results.component';
 import { Input } from '../../atoms/input/input.component';
 import { seeds } from './seeds';
-
 import './search.css';
 
 type State = {
@@ -22,7 +21,14 @@ type Result = {
     keywords: string[] | [];
 };
 
-export class Search extends Component<{}, State> {
+type Props = {
+    type: SearchType;
+    className?: string;
+};
+
+export type SearchType = 'headerSearch' | 'homepageSearch';
+
+export class Search extends Component<Props, State> {
     state = {
         searchText: '',
         areResultsShowing: false,
@@ -46,8 +52,6 @@ export class Search extends Component<{}, State> {
     };
 
     handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        const { searchText } = this.state;
-        console.log(e.key);
         e.key === 'Escape' && this.closeResults();
         e.key === 'ArrowDown' && this.arrowDown();
         e.key === 'ArrowUp' && this.arrowUp();
@@ -109,11 +113,12 @@ export class Search extends Component<{}, State> {
             notFound,
             searchText
         } = this.state;
+        const { type } = this.props;
 
         return (
             <div
                 // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
-                className={`wrapper relative ${!areResultsShowing &&
+                className={`wrapper relative ${type} ${!areResultsShowing &&
                     'wrapperBox'}`}
             >
                 <Input
@@ -126,6 +131,7 @@ export class Search extends Component<{}, State> {
                 />
                 {areResultsShowing && (
                     <SearchResults
+                        type={type}
                         handleResultClick={this.handleResultClick}
                         handleChange={this.handleChange}
                         handleKeyUp={this.handleKeyUp}

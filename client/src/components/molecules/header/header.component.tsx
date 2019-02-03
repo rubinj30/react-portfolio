@@ -3,6 +3,7 @@ import { Hamburger } from '../../atoms/hamburger/hamburger.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import { PagesDropdown } from '../../organisms/page-dropdown/page-dropdown.component';
 import { UserInitial } from '../../atoms/user-initial/user-initial.component';
+import { Search } from '../../molecules/search/search.component';
 import './header.css';
 import '../../../App.css';
 
@@ -50,6 +51,7 @@ export class Header extends React.Component<{}, State> {
                             text="About"
                         />
                     </div>
+                    {/* <Search type={'headerSearch'} /> */}
                     <div className="flex items-center pl4 w5 justify-between f6">
                         <StyledLink
                             color="black"

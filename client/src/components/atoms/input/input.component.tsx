@@ -16,7 +16,7 @@ export const Input = ({
     handleKeyUp
 }: Props) => {
     return (
-        <div className={`searchContainer ${className}`}>
+        <div className={`${className}`}>
             <input
                 value={value}
                 placeholder={placeholder}

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Input } from '../../atoms/input/input.component';
 import { Button } from '../../atoms/button/button.component';
+import { SearchType } from '../../molecules/search/search.component';
 import './search-results.css';
 
 type Props = {
+    type: SearchType;
     areResultsShowing: boolean;
     handleResultMouseEnter: Function;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -16,6 +18,7 @@ type Props = {
 };
 
 export const SearchResults = ({
+    type,
     areResultsShowing,
     handleResultMouseEnter,
     handleChange,
@@ -27,15 +30,12 @@ export const SearchResults = ({
     searchResults
 }: Props) => {
     return (
-        <div
-            className={`w-97 resultsContainer absolute  ${areResultsShowing &&
-                'flatTopBr'}`}
-        >
+        <div className={`w-97 resultsContainer absolute`}>
             <Input
                 value={searchText}
                 handleKeyUp={handleKeyUp}
                 handleChange={handleChange}
-                className={'searchInput'}
+                className={`searchInput ${type}`}
             />
             {searchResults.map((result, i) => {
                 return (
