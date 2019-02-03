@@ -105,15 +105,23 @@ export class Search extends Component<{}, State> {
     };
 
     render() {
-        const { areResultsShowing, hoveredIndex, notFound } = this.state;
+        const {
+            areResultsShowing,
+            hoveredIndex,
+            notFound,
+            searchText
+        } = this.state;
 
-        const belowSearch = areResultsShowing || notFound.showing;
         return (
             <div
-                className={`containerWrapper relative ${belowSearch &&
-                    'flatBottomBr'}`}
+                // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
+                className={`wrapper relative ${!areResultsShowing &&
+                    'wrapperBox'}`}
             >
-                <div className={`searchContainer`}>
+                <div
+                    // covering with z-index when results are open as results container will have a similar input
+                    className={`searchContainer ${areResultsShowing && 'z-0'}`}
+                >
                     <input
                         placeholder="Search here"
                         onChange={this.handleChange}
@@ -123,10 +131,13 @@ export class Search extends Component<{}, State> {
                 {areResultsShowing && (
                     <SearchResults
                         handleResultClick={this.handleResultClick}
+                        handleChange={this.handleChange}
+                        handleKeyUp={this.handleKeyUp}
                         areResultsShowing={areResultsShowing}
                         hoveredIndex={hoveredIndex}
                         handleResultMouseEnter={this.handleResultMouseEnter}
                         takeToResult={this.takeToResult}
+                        searchText={searchText}
                     />
                 )}
                 {notFound.showing && <NotFound text={notFound.text} />}
@@ -137,28 +148,44 @@ export class Search extends Component<{}, State> {
 
 const NotFound = ({ text }) => (
     <div className="br1 pa3 absolute resultsContainer">
-        There are no results matching "{text}"
+        There are no results matching{' '}
+        {text ? `"${text}"` : 'as this is still "under construction"'}
     </div>
 );
 
 const SearchResults = ({
     areResultsShowing,
     handleResultMouseEnter,
+    handleChange,
+    handleKeyUp,
     hoveredIndex,
     handleResultClick,
-    takeToResult
+    takeToResult,
+    searchText
 }: {
     areResultsShowing: boolean;
     handleResultMouseEnter: Function;
+    handleChange: any;
+    handleKeyUp: any;
     hoveredIndex: number;
     handleResultClick: any;
     takeToResult: any;
+    searchText: string;
 }) => {
     return (
         <div
             className={`w-97 resultsContainer absolute  ${areResultsShowing &&
                 'flatTopBr'}`}
         >
+            <div className={`searchContainer`}>
+                <input
+                    className={'searchInput'}
+                    placeholder="Search here"
+                    onChange={handleChange}
+                    onKeyUp={handleKeyUp}
+                    value={searchText}
+                />
+            </div>
             {seeds.map((result, i) => {
                 return (
                     <div

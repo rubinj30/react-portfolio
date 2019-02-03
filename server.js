@@ -6,10 +6,10 @@ const bodyParser = require('body-parser');
 
 // Database setup
 mongoose.Promise = global.Promise;
-mongoose.connect(
-    process.env.MONGODB_URI,
-    { useNewUrlParser: true, useCreateIndex: true }
-);
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+});
 
 const connection = mongoose.connection;
 
@@ -25,6 +25,9 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/client/build/'));
+
+const ProjectsController = require('./routes/projects');
+app.use('/api/projects', ProjectsController);
 
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html');

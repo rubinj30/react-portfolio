@@ -10,3 +10,7 @@
     box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.26);
 }
 
+.phoneTop {
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+}

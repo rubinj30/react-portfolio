@@ -2,6 +2,7 @@ import React from 'react';
 import { FullName } from '../../atoms/name/name.component';
 import Picture from '../../../images/JonathanRubin.jpg';
 import { Card } from '../../molecules/card/card.component';
+import { Title } from '../../atoms/title/title.component';
 import './about.css';
 
 export const About = () => {
@@ -13,7 +14,7 @@ export const About = () => {
                     <Card className="profilePic">
                         <img src={Picture} alt={'Photo of Jonathan Rubin'} />
                     </Card>
-                    <h3 className="mv0">About Me</h3>
+                    <Title className="mv0" text="About Me" />
                     <p>
                         I am a full-stack developer based in Atlanta, GA. I work
                         at Supply.com rebuilding the front-end of the e-commerce
@@ -25,20 +26,19 @@ export const About = () => {
                         Southeast, eat chicken wings around Atlanta, and of
                         course write code.
                     </p>
-                    <h4>My story</h4>
+                    <Title className="mv0" text="My Story" />
                     <p>
-                        I have a background in data analytics and after dealing
-                        with Excel constantly getting slowed down by the larger
-                        datasets I was working with, I discovered Python. The
-                        more I worked in Python, the more I found myself using
-                        it for automating processes. I started spending my
-                        weekends coding and working on self-directed side
-                        projects for work. At first it was things I was
-                        previously doing with macros, formulas or manually, but
-                        soon I was looping through API calls to fetch additional
-                        information about prospective customers for our sales
-                        team and setting up our daily reports to be pulled and
-                        sent out automatically.
+                        I have a background in data analytics and discovered
+                        Python while researching how to work with larger
+                        datasets. The more I worked in Python, the more I found
+                        myself using it for automating processes. I started
+                        spending my weekends coding and working on self-directed
+                        side projects for work. At first, I was replacing Excel
+                        macros that I had setup for certain manual processes
+                        with scripts. Soon I was looping through API calls to
+                        fetch additional information about prospective customers
+                        for our sales team and setting up our daily reports to
+                        be pulled and sent out automatically.
                     </p>
                     <p>
                         Eventually, I decided I had to pursue this new-found
@@ -51,11 +51,9 @@ export const About = () => {
                         developers.
                     </p>
                     <p>
-                        Shortly after the course ended, I took a position at an
-                        e-commerce company that was completely rebuilding their
-                        platform and front-end using cutting-edge technologies.
-                        It has been amazing to work with and learn from other
-                        programmers and build something together.
+                        When the course ended, I started at Supply.com, tasked
+                        with rebuilding the e-commerce site and migrating to a
+                        completely new platform.
                     </p>
                 </div>
             </div>

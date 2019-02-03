@@ -8,7 +8,16 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 const Project = require('./models/Project');
 
-const blackjack = new Project({});
+const blackjack = new Project({
+    name: 'Jack Black BlackJack',
+    link: 'https://jackblackblackjack.netlify.com',
+    github: 'https://github.com/rubinj30/Blackjack',
+    image: {
+        name: 'blackjack',
+        style: 'br1'
+    },
+    description: ''
+});
 
 const connect4 = new Project({
     name: 'Connect 4',
@@ -36,8 +45,25 @@ const investments = new Project({
     '
 });
 
+const climbing = new Project({
+    name: 'partner-in-climb',
+    link: 'https://partner-in-climb.herokuapp.com/',
+    github: 'https://github.com/rubinj30/partner-in-climb',
+    image: {
+        name: 'climb',
+        style: 'br1'
+    },
+    description:
+        'This was my attempt to make an app on which I could easily track the performance of my investments.\
+            Most investment applications provide a lot of information and you can trade securities from it. \
+            But the user-interfaces are usually horrible and typically people are just checking the performance of their stocks, or for any news related to them.\
+    '
+});
+
 Project.deleteMany({})
     .then(() => connect4.save())
     .then(() => investments.save())
+    .then(() => climbing.save())
+    .then(() => blackjack.save())
     .then(() => console.log('SEEDED DATABASE'))
     .then(() => mongoose.connection.close());

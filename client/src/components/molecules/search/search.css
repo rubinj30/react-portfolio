@@ -1,15 +1,14 @@
-.containerWrapper {
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.26);
-    outline: 0;
+.wrapper {
+    /* outline: 0; */
     border-radius: 2px;
     max-width: 484px;
     width: 90%;
 }
 
-.flatBottomBr {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+.wrapperBox {
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.26);
 }
+
 .grayBg {
     background: #eee;
 }
@@ -27,12 +26,16 @@ input {
     width: 93%;
 }
 
+.searchInput {
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
 .result {
     padding: 3px 10px;
 }
 
 .resultsContainer {
-    border-top: 1px solid lightgray;
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.26);
     outline: 0;
     border-radius: 2px;
@@ -40,9 +43,5 @@ input {
     width: 100%;
     background: white;
     z-index: 3;
-}
-
-.flatTopBr {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    top: 0;
 }
