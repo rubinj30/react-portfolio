@@ -1,5 +1,4 @@
 .wrapper {
-    /* outline: 0; */
     border-radius: 2px;
     max-width: 484px;
     width: 90%;
@@ -15,7 +14,6 @@
 
 .searchContainer {
     height: 40px;
-    border-bottom: gray;
     line-height: 27px;
 }
 
@@ -24,11 +22,6 @@ input {
     outline: 0;
     border: white solid 0px;
     width: 93%;
-}
-
-.searchInput {
-    padding-bottom: 5px;
-    border-bottom: 1px solid lightgray;
 }
 
 .result {

@@ -14,7 +14,7 @@ const blackjack = new Project({
     github: 'https://github.com/rubinj30/Blackjack',
     image: {
         name: 'blackjack',
-        style: 'br1'
+        style: 'br3'
     },
     description: ''
 });

@@ -25,7 +25,6 @@ const DropdownSquare = ({
     toggleDropdown?: (e: React.MouseEvent<any>) => void;
 }) => {
     const iconLink = link ? link : `/${title.toLowerCase()}`;
-    console.log(iconLink)
     return (
         <StyledLink
             link={iconLink}
@@ -48,27 +47,39 @@ type Props = {
     children?: any;
 };
 
-export const PagesDropdown = ({ setRef, handleClickOutside, toggleDropdown }: Props) => {
+export const PagesDropdown = ({
+    setRef,
+    handleClickOutside,
+    toggleDropdown
+}: Props) => {
     return (
         <Dropdown setRef={setRef} handleClickOutside={handleClickOutside}>
             <DropdownSquare
                 title="Projects"
                 icon={<FaLaptopCode color={'red'} />}
+                toggleDropdown={toggleDropdown}
             />
-            <DropdownSquare title="About" icon={<FaSmile color="#FBD043" />} />
+            <DropdownSquare
+                title="About"
+                icon={<FaSmile color="#FBD043" />}
+                toggleDropdown={toggleDropdown}
+            />
             <DropdownSquare
                 title="Contact"
                 icon={<FaEnvelope color="green" />}
+                toggleDropdown={toggleDropdown}
             />
             <DropdownSquare
                 link="https://github.com/rubinj30"
                 title="GitHub"
                 icon={<FaGithub />}
+                toggleDropdown={toggleDropdown}
             />
             <DropdownSquare
                 link="https://www.linkedin.com/in/jonathan-rubin/"
                 title="LinkedIn"
                 icon={<FaLinkedin color="0077B5" />}
+                toggleDropdown={toggleDropdown}
             />
             <DropdownSquare
                 link="/"

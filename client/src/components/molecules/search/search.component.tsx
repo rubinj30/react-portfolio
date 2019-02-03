@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button } from '../../atoms/button/button.component';
+import { SearchResults } from '../search-results/search-results.component';
+import { Input } from '../../atoms/input/input.component';
 import { seeds } from './seeds';
-import { Dropdown } from '../dropdown/dropdown.component';
+
 import './search.css';
 
 type State = {
@@ -12,8 +13,6 @@ type State = {
         text: string;
         showing: boolean;
     };
-    // change this to an array of the results
-    //
     results: Result[];
 };
 
@@ -57,7 +56,9 @@ export class Search extends Component<{}, State> {
 
     takeToResult = () => {
         const { searchText, hoveredIndex, results } = this.state;
+        console.log('running take to results');
         if (hoveredIndex >= 0) {
+            console.log('since hovInd is >= 0, going to hovered item');
             window.location.assign(results[hoveredIndex].link);
         } else {
             this.closeResults();
@@ -78,7 +79,6 @@ export class Search extends Component<{}, State> {
                 hoveredIndex < this.state.results.length - 1
                     ? hoveredIndex + 1
                     : 0;
-            console.log(newIndex);
             return { hoveredIndex: newIndex };
         });
     };
@@ -89,7 +89,6 @@ export class Search extends Component<{}, State> {
                 hoveredIndex > 0
                     ? hoveredIndex - 1
                     : this.state.results.length - 1;
-            console.log(newIndex);
             return { hoveredIndex: newIndex };
         });
     };
@@ -99,7 +98,6 @@ export class Search extends Component<{}, State> {
     };
 
     handleResultClick = async i => {
-        console.log('woo');
         await this.setState({ hoveredIndex: i });
         this.takeToResult();
     };
@@ -118,16 +116,14 @@ export class Search extends Component<{}, State> {
                 className={`wrapper relative ${!areResultsShowing &&
                     'wrapperBox'}`}
             >
-                <div
-                    // covering with z-index when results are open as results container will have a similar input
-                    className={`searchContainer ${areResultsShowing && 'z-0'}`}
-                >
-                    <input
-                        placeholder="Search here"
-                        onChange={this.handleChange}
-                        onKeyUp={this.handleKeyUp}
-                    />
-                </div>
+                <Input
+                    handleKeyUp={this.handleKeyUp}
+                    handleChange={this.handleChange}
+                    className={`${areResultsShowing && 'z-0'}`}
+                    placeholder={
+                        'Search here (Browse until search is completed)'
+                    }
+                />
                 {areResultsShowing && (
                     <SearchResults
                         handleResultClick={this.handleResultClick}
@@ -138,6 +134,8 @@ export class Search extends Component<{}, State> {
                         handleResultMouseEnter={this.handleResultMouseEnter}
                         takeToResult={this.takeToResult}
                         searchText={searchText}
+                        // TODO: seeds for now, but eventually this will pull from DB
+                        searchResults={seeds}
                     />
                 )}
                 {notFound.showing && <NotFound text={notFound.text} />}
@@ -146,62 +144,10 @@ export class Search extends Component<{}, State> {
     }
 }
 
+// TODO: use this similar to input in resultsContainer
+// make resultsContainer its own atom!
 const NotFound = ({ text }) => (
     <div className="br1 pa3 absolute resultsContainer">
-        There are no results matching{' '}
-        {text ? `"${text}"` : 'as this is still "under construction"'}
+        There are no results matching {text ? `for "${text}"` : ''}
     </div>
 );
-
-const SearchResults = ({
-    areResultsShowing,
-    handleResultMouseEnter,
-    handleChange,
-    handleKeyUp,
-    hoveredIndex,
-    handleResultClick,
-    takeToResult,
-    searchText
-}: {
-    areResultsShowing: boolean;
-    handleResultMouseEnter: Function;
-    handleChange: any;
-    handleKeyUp: any;
-    hoveredIndex: number;
-    handleResultClick: any;
-    takeToResult: any;
-    searchText: string;
-}) => {
-    return (
-        <div
-            className={`w-97 resultsContainer absolute  ${areResultsShowing &&
-                'flatTopBr'}`}
-        >
-            <div className={`searchContainer`}>
-                <input
-                    className={'searchInput'}
-                    placeholder="Search here"
-                    onChange={handleChange}
-                    onKeyUp={handleKeyUp}
-                    value={searchText}
-                />
-            </div>
-            {seeds.map((result, i) => {
-                return (
-                    <div
-                        key={i}
-                        onMouseEnter={handleResultMouseEnter(i)}
-                        onClick={() => handleResultClick(i)}
-                        className={`result ${hoveredIndex === i ? 'grayBg' : ''}
-                    `}
-                    >
-                        {result.text}
-                    </div>
-                );
-            })}
-            <div className="flex justify-center" onClick={takeToResult}>
-                <Button label="Jonathan Search" />
-            </div>
-        </div>
-    );
-};

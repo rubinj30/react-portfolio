@@ -17,7 +17,7 @@ export const Header = ({
     toggleDropdown,
     isPagesDropdownOpen,
     setRef,
-    handleClickOutside,
+    handleClickOutside
 }: Props) => {
     return (
         <div className="w-100 h3 flex justify-center items-center">
@@ -45,6 +45,7 @@ export const Header = ({
                     />
                     {isPagesDropdownOpen && (
                         <PagesDropdown
+                        
                             setRef={setRef}
                             handleClickOutside={handleClickOutside}
                             toggleDropdown={toggleDropdown}

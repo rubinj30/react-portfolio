@@ -93,7 +93,7 @@ const seedProjects = [
             style: 'br1'
         },
         description:
-            'This was designed to help rock climbers find climbing partners. It was my first time using ExpressP and having full CRUD for on 3 nested data models. I also learned the basics of how website routing works.'
+            'This was designed to help rock climbers find climbing partners. It was my first time using Express.js, I learned the basics of how website routing works, and it has full CRUD for on 3 nested data models. I used handlebars.js as the templating framework for the front-end. I also learned the basics of how website routing works.'
     },
     {
         name: 'Jack Black BlackJack',
@@ -101,7 +101,7 @@ const seedProjects = [
         github: 'https://github.com/rubinj30/Blackjack',
         image: {
             name: jb_card,
-            style: 'br1'
+            style: 'br3'
         },
         description:
             'This was the first web app I ever built. It is a fully-functioning version of Blackjack, complete with betting.'
