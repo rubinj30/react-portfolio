@@ -7,46 +7,16 @@ import { About } from './components/pages/about/about.component';
 import { Contact } from './components/pages/contact/contact.component';
 import './App.css';
 
-class App extends Component {
-    state = {
-        isPagesDropdownOpen: false
-    };
+type State = {
+    isPagesDropdownOpen: boolean;
+};
 
-    public wrapRef;
-    constructor(props) {
-        super(props);
-        this.wrapRef = React.createRef();
-    }
-
-    toggleDropdown = () => {
-        this.setState(
-            ({ isPagesDropdownOpen }: { isPagesDropdownOpen: boolean }) => {
-                return { isPagesDropdownOpen: !isPagesDropdownOpen };
-            }
-        );
-    };
-
-    handleClickOutside = (event: MouseEvent) => {
-        if (this.wrapRef && !this.wrapRef.contains(event.target)) {
-            this.toggleDropdown();
-        }
-    };
-
-    setRef = r => {
-        this.wrapRef = r;
-    };
-
+class App extends Component<{}, State> {
     render() {
         return (
             <Router>
                 <div>
-                    <Header
-                        setRef={this.setRef}
-                        toggleDropdown={this.toggleDropdown}
-                        isPagesDropdownOpen={this.state.isPagesDropdownOpen}
-                        handleClickOutside={this.handleClickOutside}
-                    />
-                    <Route />
+                    <Header />
                     <Switch>
                         <Route exact path="/" component={HomePage} />
                         <Route exact path="/projects" component={Projects} />
