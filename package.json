@@ -12,21 +12,10 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "postinstall": "cd client && npm i && npm run build"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/rubinj30/portfolio-2.git"
-    },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/rubinj30/portfolio-2/issues"
-    },
     "dependencies": {
-        "@types/react-dom": "^16.0.11",
-        "@types/react-icons": "^2.2.6",
-        "@types/react-router": "^4.4.3",
-        "@types/react-router-dom": "^4.3.1",
         "body-parser": "^1.18.3",
         "concurrently": "^4.1.0",
         "dotenv": "^6.2.0",

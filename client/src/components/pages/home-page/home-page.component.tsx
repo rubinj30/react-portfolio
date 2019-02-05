@@ -6,7 +6,7 @@ export const HomePage = () => {
     return (
         <div className="flex flex-column items-center">
             <First className="pt6" />
-            <Search type="homepageSearch" />
+            <Search />
             <div className="pt5 w-90 w-70-l f7">
                 *My portfolio is still "under construction", but the basics are
                 here! Click on the small gray boxes in the header to find your

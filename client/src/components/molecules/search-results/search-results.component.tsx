@@ -1,12 +1,9 @@
 import React from 'react';
 import { Input } from '../../atoms/input/input.component';
 import { Button } from '../../atoms/button/button.component';
-import { SearchType } from '../../molecules/search/search.component';
 import './search-results.css';
 
 type Props = {
-    type: SearchType;
-    areResultsShowing: boolean;
     handleResultMouseEnter: Function;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
@@ -18,8 +15,6 @@ type Props = {
 };
 
 export const SearchResults = ({
-    type,
-    areResultsShowing,
     handleResultMouseEnter,
     handleChange,
     handleKeyUp,
@@ -35,21 +30,22 @@ export const SearchResults = ({
                 value={searchText}
                 handleKeyUp={handleKeyUp}
                 handleChange={handleChange}
-                className={`searchInput ${type}`}
             />
-            {searchResults.map((result, i) => {
-                return (
-                    <div
-                        key={i}
-                        onMouseEnter={handleResultMouseEnter(i)}
-                        onClick={() => handleResultClick(i)}
-                        className={`result ${hoveredIndex === i ? 'grayBg' : ''}
+            <div className={`bt b--light-gray`}>
+                {searchResults.map((result, i) => {
+                    return (
+                        <div
+                            key={i}
+                            onMouseEnter={handleResultMouseEnter(i)}
+                            onClick={() => handleResultClick(i)}
+                            className={`result ${hoveredIndex === i ? 'grayBg' : ''}
                     `}
-                    >
-                        {result.text}
-                    </div>
-                );
-            })}
+                        >
+                            {result.text}
+                        </div>
+                    );
+                })}
+            </div>
             <div className="flex justify-center" onClick={takeToResult}>
                 <Button label="Jonathan Search" />
             </div>

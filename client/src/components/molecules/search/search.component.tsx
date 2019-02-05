@@ -22,11 +22,8 @@ type Result = {
 };
 
 type Props = {
-    type: SearchType;
     className?: string;
 };
-
-export type SearchType = 'headerSearch' | 'homepageSearch';
 
 export class Search extends Component<Props, State> {
     state = {
@@ -113,12 +110,11 @@ export class Search extends Component<Props, State> {
             notFound,
             searchText
         } = this.state;
-        const { type } = this.props;
 
         return (
             <div
                 // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
-                className={`wrapper relative ${type} ${!areResultsShowing &&
+                className={`wrapper relative ${!areResultsShowing &&
                     'wrapperBox'}`}
             >
                 <Input
@@ -131,11 +127,9 @@ export class Search extends Component<Props, State> {
                 />
                 {areResultsShowing && (
                     <SearchResults
-                        type={type}
                         handleResultClick={this.handleResultClick}
                         handleChange={this.handleChange}
                         handleKeyUp={this.handleKeyUp}
-                        areResultsShowing={areResultsShowing}
                         hoveredIndex={hoveredIndex}
                         handleResultMouseEnter={this.handleResultMouseEnter}
                         takeToResult={this.takeToResult}
