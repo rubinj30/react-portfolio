@@ -6,6 +6,7 @@ type Props = {
     value?: string;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+    onFocus?: any;
 };
 
 export const Input = ({
@@ -13,7 +14,8 @@ export const Input = ({
     placeholder,
     value,
     handleChange,
-    handleKeyUp
+    handleKeyUp,
+    onFocus
 }: Props) => {
     return (
         <div className={`${className}`}>
@@ -22,6 +24,7 @@ export const Input = ({
                 placeholder={placeholder}
                 onChange={handleChange}
                 onKeyUp={handleKeyUp}
+                onFocus={onFocus}
             />
         </div>
     );

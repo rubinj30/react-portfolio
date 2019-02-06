@@ -103,6 +103,12 @@ export class Search extends Component<Props, State> {
         this.takeToResult();
     };
 
+    scrollToElement = () => {
+        console.log('scrolling');
+        const searchContainer = document.getElementById('inputContainer');
+        searchContainer && searchContainer.scrollIntoView( );
+    };
+
     render() {
         const {
             areResultsShowing,
@@ -116,14 +122,14 @@ export class Search extends Component<Props, State> {
                 // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
                 className={`wrapper relative ${!areResultsShowing &&
                     'wrapperBox'}`}
+                id="inputContainer"
             >
                 <Input
                     handleKeyUp={this.handleKeyUp}
                     handleChange={this.handleChange}
                     className={`${areResultsShowing && 'z-0'}`}
-                    placeholder={
-                        'Search here (Browse for now)'
-                    }
+                    placeholder={'Search here (Browse for now)'}
+                    onFocus={this.scrollToElement}
                 />
                 {areResultsShowing && (
                     <SearchResults
@@ -134,6 +140,7 @@ export class Search extends Component<Props, State> {
                         handleResultMouseEnter={this.handleResultMouseEnter}
                         takeToResult={this.takeToResult}
                         searchText={searchText}
+                        scrollToElement={this.scrollToElement}
                         // TODO: seeds for now, but eventually this will pull from DB
                         searchResults={seeds}
                     />

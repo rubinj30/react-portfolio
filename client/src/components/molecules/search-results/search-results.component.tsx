@@ -12,6 +12,7 @@ type Props = {
     takeToResult: () => void;
     searchText: string;
     searchResults: any;
+    scrollToElement: Function;
 };
 
 export const SearchResults = ({
@@ -22,14 +23,16 @@ export const SearchResults = ({
     handleResultClick,
     takeToResult,
     searchText,
-    searchResults
+    searchResults,
+    scrollToElement
 }: Props) => {
     return (
-        <div className={`w-97 resultsContainer absolute`}>
+        <div className={`w-97 resultsContainer absolute`} id="inputContainer">
             <Input
                 value={searchText}
                 handleKeyUp={handleKeyUp}
                 handleChange={handleChange}
+                onFocus={scrollToElement}
             />
             <div className={`bt b--light-gray`}>
                 {searchResults.map((result, i) => {
@@ -38,7 +41,9 @@ export const SearchResults = ({
                             key={i}
                             onMouseEnter={handleResultMouseEnter(i)}
                             onClick={() => handleResultClick(i)}
-                            className={`result ${hoveredIndex === i ? 'grayBg' : ''}
+                            className={`result ${
+                                hoveredIndex === i ? 'grayBg' : ''
+                            }
                     `}
                         >
                             {result.text}
