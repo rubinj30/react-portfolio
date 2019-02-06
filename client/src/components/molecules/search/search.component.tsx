@@ -122,7 +122,7 @@ export class Search extends Component<Props, State> {
                     handleChange={this.handleChange}
                     className={`${areResultsShowing && 'z-0'}`}
                     placeholder={
-                        'Search here (Browse until search is completed)'
+                        'Search here (Browse for now)'
                     }
                 />
                 {areResultsShowing && (
