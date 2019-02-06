@@ -103,10 +103,11 @@ export class Search extends Component<Props, State> {
         this.takeToResult();
     };
 
-    scrollToElement = () => {
+    scrollToElement = async () => {
         console.log('scrolling');
         const searchContainer = document.getElementById('inputContainer');
-        searchContainer && searchContainer.scrollIntoView( );
+        searchContainer &&
+            searchContainer.scrollIntoView({ behavior: 'smooth' });
     };
 
     render() {
@@ -122,7 +123,6 @@ export class Search extends Component<Props, State> {
                 // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
                 className={`wrapper relative ${!areResultsShowing &&
                     'wrapperBox'}`}
-                id="inputContainer"
             >
                 <Input
                     handleKeyUp={this.handleKeyUp}
