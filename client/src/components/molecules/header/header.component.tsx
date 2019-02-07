@@ -1,15 +1,21 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Hamburger } from '../../atoms/hamburger/hamburger.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import { PagesDropdown } from '../../organisms/page-dropdown/page-dropdown.component';
 import { UserInitial } from '../../atoms/user-initial/user-initial.component';
 import { Search } from '../../molecules/search/search.component';
+import { Name } from '../../atoms/name/name.component';
 import './header.css';
 import '../../../App.css';
 
 type State = { isPagesDropdownOpen: boolean };
 
-export class Header extends React.Component<{}, State> {
+type Props = {
+    location?: any;
+}
+
+class Header extends React.Component<Props, State> {
     state = {
         isPagesDropdownOpen: false
     };
@@ -40,42 +46,50 @@ export class Header extends React.Component<{}, State> {
 
     render() {
         const { isPagesDropdownOpen } = this.state;
+        console.log(this.props);
+        const isHomePage = this.props.location.pathname === '/';
         return (
             <div className="w-100 h3 flex justify-center items-center">
                 <div className="w-90 flex justify-between items-center">
-                    <div className={`h3 ph3 flex items-center`}>
+                    {isHomePage && <div className={`h3 ph3 flex items-center`}>
                         <StyledLink
                             color="black"
                             hoverUnderline={true}
                             link={'/about'}
                             text="About"
                         />
-                    </div>
-                    {/* <Search type={'headerSearch'} /> */}
-                    <div className="flex items-center pl4 w5 justify-between f6">
-                        <StyledLink
+                    </div>}
+                    {/* if not on the homepage the search bar should show in the header */}
+                    {!isHomePage && <Name text="Jonathan" type="header" className="dn dib-ns" />}
+                    {!isHomePage && <Search type={'headerSearch'} />}
+                    <div className="flex items-center pl2 pl4-l justify-between f6">
+                        {isHomePage && <StyledLink
                             color="black"
                             hoverUnderline={true}
                             link={'/projects'}
                             text="Projects"
-                        />
-                        <Hamburger
-                            className={'arrowContainer'}
-                            toggleDropdown={this.toggleDropdown}
-                            setRef={this.setRef}
-                            isPagesDropdownOpen={isPagesDropdownOpen}
-                        />
-                        {isPagesDropdownOpen && (
-                            <PagesDropdown
-                                setRef={this.setRef}
-                                handleClickOutside={this.handleClickOutside}
+                        />}
+                        <div className="w4 flex justify-around">
+                            <Hamburger
+                                className={'arrowContainer'}
                                 toggleDropdown={this.toggleDropdown}
+                                setRef={this.setRef}
+                                isPagesDropdownOpen={isPagesDropdownOpen}
                             />
-                        )}
-                        <UserInitial letter="J" size="small" />
+                            {isPagesDropdownOpen && (
+                                <PagesDropdown
+                                    setRef={this.setRef}
+                                    handleClickOutside={this.handleClickOutside}
+                                    toggleDropdown={this.toggleDropdown}
+                                />
+                            )}
+                            <UserInitial letter="J" size="small" />
+                        </div>
+
                     </div>
                 </div>
             </div>
         );
     }
 }
+export default withRouter<any>(Header)

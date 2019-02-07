@@ -7,7 +7,7 @@ import './contact.css';
 export const Contact = () => {
     return (
         <div className="flex flex-column items-center justify-center">
-            <FullName />
+            <FullName type="page" />
             <div className="flex flex-column justify-center">
                 <ContactItem
                     text="jonathan.a.rubin@gmail.com"
@@ -37,14 +37,14 @@ const ContactItem = ({
     icon: ReactNode;
     text?: string;
 }) => (
-    <StyledLink
-        link={link}
-        hoverUnderline={true}
-        className="linkWrapper flex justify-center items-center"
-    >
-        <div className="flex">
-            <div>{icon}</div>
-            <div className="contactItem">{text || link}</div>
-        </div>
-    </StyledLink>
-);
+        <StyledLink
+            link={link}
+            hoverUnderline={true}
+            className="linkWrapper flex justify-center items-center"
+        >
+            <div className="flex">
+                <div>{icon}</div>
+                <div className="contactItem">{text || link}</div>
+            </div>
+        </StyledLink>
+    );
