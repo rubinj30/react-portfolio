@@ -23,6 +23,8 @@ type Result = {
 
 type Props = {
     className?: string;
+    type?: string;
+    placeholder?: string;
 };
 
 export class Search extends Component<Props, State> {
@@ -115,9 +117,9 @@ export class Search extends Component<Props, State> {
             areResultsShowing,
             hoveredIndex,
             notFound,
-            searchText
+            searchText,
         } = this.state;
-
+        const { placeholder } = this.props;
         return (
             <div
                 // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
@@ -128,8 +130,8 @@ export class Search extends Component<Props, State> {
                     handleKeyUp={this.handleKeyUp}
                     handleChange={this.handleChange}
                     className={`${areResultsShowing && 'z-0'}`}
-                    placeholder={'Search here (Browse for now)'}
                     onFocus={this.scrollToElement}
+                    placeholder={placeholder}
                 />
                 {areResultsShowing && (
                     <SearchResults

@@ -9,7 +9,7 @@ export const About = () => {
     return (
         <div className="flex justify-center">
             <div className="flex flex-column justify-center items-center w-90 w-70-l">
-                <FullName />
+                <FullName type="page" className="pt4 pb3" />
                 <div className="pb4">
                     <Card className="profilePic">
                         <img src={Picture} alt={'Photo of Jonathan Rubin'} />
