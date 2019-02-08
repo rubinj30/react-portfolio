@@ -105,11 +105,9 @@ export class Search extends Component<Props, State> {
         this.takeToResult();
     };
 
-    scrollToElement = async () => {
-        console.log('scrolling');
-        const searchContainer = document.getElementById('inputContainer');
-        searchContainer &&
-            searchContainer.scrollIntoView({ behavior: 'smooth' });
+    scrollToElement = () => {
+        const searchContainer = document.getElementById('searchWrapper');
+        searchContainer && searchContainer.scrollIntoView();
     };
 
     render() {
@@ -117,37 +115,39 @@ export class Search extends Component<Props, State> {
             areResultsShowing,
             hoveredIndex,
             notFound,
-            searchText,
+            searchText
         } = this.state;
         const { placeholder } = this.props;
         return (
-            <div
-                // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
-                className={`wrapper relative ${!areResultsShowing &&
-                    'wrapperBox'}`}
-            >
-                <Input
-                    handleKeyUp={this.handleKeyUp}
-                    handleChange={this.handleChange}
-                    className={`${areResultsShowing && 'z-0'}`}
-                    onFocus={this.scrollToElement}
-                    placeholder={placeholder}
-                />
-                {areResultsShowing && (
-                    <SearchResults
-                        handleResultClick={this.handleResultClick}
-                        handleChange={this.handleChange}
+            <div id="searchWrapper" className={`searchWrapper ${true ? 'pt3' : 'pt0'}`}>
+                <div
+                    // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
+                    className={`innerWrapper relative ${!areResultsShowing &&
+                        'wrapperBox'}`}
+                >
+                    <Input
                         handleKeyUp={this.handleKeyUp}
-                        hoveredIndex={hoveredIndex}
-                        handleResultMouseEnter={this.handleResultMouseEnter}
-                        takeToResult={this.takeToResult}
-                        searchText={searchText}
-                        scrollToElement={this.scrollToElement}
-                        // TODO: seeds for now, but eventually this will pull from DB
-                        searchResults={seeds}
+                        handleChange={this.handleChange}
+                        className={`${areResultsShowing && 'z-0'}`}
+                        onFocus={this.scrollToElement}
+                        placeholder={placeholder}
                     />
-                )}
-                {notFound.showing && <NotFound text={notFound.text} />}
+                    {areResultsShowing && (
+                        <SearchResults
+                            handleResultClick={this.handleResultClick}
+                            handleChange={this.handleChange}
+                            handleKeyUp={this.handleKeyUp}
+                            hoveredIndex={hoveredIndex}
+                            handleResultMouseEnter={this.handleResultMouseEnter}
+                            takeToResult={this.takeToResult}
+                            searchText={searchText}
+                            scrollToElement={this.scrollToElement}
+                            // TODO: seeds for now, but eventually this will pull from DB
+                            searchResults={seeds}
+                        />
+                    )}
+                    {notFound.showing && <NotFound text={notFound.text} />}
+                </div>
             </div>
         );
     }

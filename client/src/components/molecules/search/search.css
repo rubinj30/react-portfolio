@@ -1,7 +1,13 @@
-.wrapper {
+.searchWrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.innerWrapper {
     border-radius: 2px;
     max-width: 484px;
-    width: 90%;
+    width: 100%;
 }
 
 .wrapperBox {

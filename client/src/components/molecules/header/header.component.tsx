@@ -13,7 +13,7 @@ type State = { isPagesDropdownOpen: boolean };
 
 type Props = {
     location?: any;
-}
+};
 
 class Header extends React.Component<Props, State> {
     state = {
@@ -51,24 +51,39 @@ class Header extends React.Component<Props, State> {
         return (
             <div className="w-100 h3 flex justify-center items-center">
                 <div className="w-90 flex justify-between items-center">
-                    {isHomePage && <div className={`h3 ph3 flex items-center`}>
-                        <StyledLink
-                            color="black"
-                            hoverUnderline={true}
-                            link={'/about'}
-                            text="About"
-                        />
-                    </div>}
+                    {isHomePage && (
+                        <div className={`h3 ph3 flex items-center`}>
+                            <StyledLink
+                                color="black"
+                                hoverUnderline={true}
+                                link={'/about'}
+                                text="About"
+                            />
+                        </div>
+                    )}
                     {/* if not on the homepage the search bar should show in the header */}
-                    {!isHomePage && <Name text="Jonathan" type="header" className="dn dib-ns" />}
-                    {!isHomePage && <Search type={'headerSearch'} />}
+                    {!isHomePage && (
+                        <Name
+                            text="Jonathan"
+                            type="header"
+                            className="dn dib-ns"
+                        />
+                    )}
+                    {!isHomePage && (
+                        <Search
+                            type={'headerSearch'}
+                            placeholder="Search (Browse for now)"
+                        />
+                    )}
                     <div className="flex items-center pl2 pl4-l justify-between f6">
-                        {isHomePage && <StyledLink
-                            color="black"
-                            hoverUnderline={true}
-                            link={'/projects'}
-                            text="Projects"
-                        />}
+                        {isHomePage && (
+                            <StyledLink
+                                color="black"
+                                hoverUnderline={true}
+                                link={'/projects'}
+                                text="Projects"
+                            />
+                        )}
                         <div className="w4 flex justify-around">
                             <Hamburger
                                 className={'arrowContainer'}
@@ -85,11 +100,10 @@ class Header extends React.Component<Props, State> {
                             )}
                             <UserInitial letter="J" size="small" />
                         </div>
-
                     </div>
                 </div>
             </div>
         );
     }
 }
-export default withRouter<any>(Header)
+export default withRouter<any>(Header);

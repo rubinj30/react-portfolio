@@ -1,0 +1,5 @@
+@media(max-width: 415px) {
+    .heightForScroll {
+        height: 120vh;
+    }
+}

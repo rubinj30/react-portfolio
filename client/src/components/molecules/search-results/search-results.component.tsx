@@ -27,7 +27,7 @@ export const SearchResults = ({
     scrollToElement
 }: Props) => {
     return (
-        <div className={`w-97 resultsContainer absolute`}>
+        <div className={`w-97 resultsContainer absolute`} id="searchWrapper">
             <Input
                 value={searchText}
                 handleKeyUp={handleKeyUp}
