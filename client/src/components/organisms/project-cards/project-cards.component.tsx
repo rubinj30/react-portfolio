@@ -3,6 +3,7 @@ import connect4 from '../../../images/connect4.png';
 import jb_card from '../../../images/JB_card.jpg';
 import polaroid from '../../../images/polaroid2.png';
 import stocks from '../../../images/stocks.png';
+import react_portfolio from '../../../images/react-portfolio.png';
 import {
     ProjectCard,
     ProjectType
@@ -82,6 +83,17 @@ const seedProjects = [
             name: connect4,
             style: 'br1'
         },
+        description:
+            'This Connect 4 allows for 2 players to play each other, or one player to play against the "Computer". This "Computer" is a formiddable opponent and can definitely beat you. There is also a score-tracking feature that is close to being finished, but I have some fine-tuning to do. The last "feature" is that you can select the size of board, and the win-checking will still work.'
+    },
+    {
+        name: 'Portfolio',
+        link: 'https://jonathanrubin.herokuapp.com/',
+        github: 'https://github.com/rubinj30/react-portfolio',
+        image: {
+            name: react_portfolio,
+            style: 'br3'
+        },
         description: ''
     },
     {
@@ -104,6 +116,6 @@ const seedProjects = [
             style: 'br3'
         },
         description:
-            'This was the first web app I ever built. It is a fully-functioning version of Blackjack, complete with betting.'
+            'This was the first web app I ever built. It is a fully-functioning version of Blackjack, complete with betting. I made it with jQuery.'
     }
 ];

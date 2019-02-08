@@ -4,11 +4,7 @@ export const seeds = [
         link: '/projects',
         keywords: ['projects', 'work', 'repos', 'github', 'jonathan']
     },
-    // {
-    //     text: 'work',
-    //     link: '/projects',
-    //     keywords: ['projects', 'work', 'repos', 'github', 'jonathan']
-    // },
+
     { text: 'about', link: '/about', keywords: ['about', 'jonathan', ''] },
     { text: 'github', link: 'https://github.com/rubinj30', keywords: ['about', 'jonathan', ''] },
     {

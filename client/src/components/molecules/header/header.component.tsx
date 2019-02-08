@@ -46,7 +46,6 @@ class Header extends React.Component<Props, State> {
 
     render() {
         const { isPagesDropdownOpen } = this.state;
-        console.log(this.props);
         const isHomePage = this.props.location.pathname === '/';
         return (
             <div className="w-100 h3 flex justify-center items-center">

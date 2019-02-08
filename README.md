@@ -14,4 +14,4 @@ For now, it is only a React (with CRA) front-end. The projects are all in a JSON
 4. GraphQL with Apollo Client - I've done a lot of work with Apollo queries and mutations, but want to be more familiar with writing GraphQL resolvers and testing them
 5. Fully-functional Search feature that will return different results after each key press based on the input text matching keywords associated with each project
 6. Fully cover the project with effective unit tests and integration tests
-7. Voice to text for search... just because Google has it
+7. Voice to text for search... just because Google has it and it would be fun to implement
