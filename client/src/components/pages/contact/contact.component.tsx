@@ -6,7 +6,7 @@ import './contact.css';
 
 export const Contact = () => {
     return (
-        <div className="flex flex-column items-center justify-center">
+        <div className="flex flex-column items-center justify-center pt4">
             <FullName type="page" />
             <div className="flex flex-column justify-center">
                 <ContactItem

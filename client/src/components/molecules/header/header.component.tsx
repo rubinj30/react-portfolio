@@ -48,10 +48,10 @@ class Header extends React.Component<Props, State> {
         const { isPagesDropdownOpen } = this.state;
         const isHomePage = this.props.location.pathname === '/';
         return (
-            <div className="w-100 h3 flex justify-center items-center">
+            <div className="w-100 h3 flex justify-center items-center mb3">
                 <div className="w-90 flex justify-between items-center">
                     {isHomePage && (
-                        <div className={`h3 ph3 flex items-center`}>
+                        <div className={`h3 ph3 flex items-center pt3`}>
                             <StyledLink
                                 color="black"
                                 hoverUnderline={true}
@@ -65,7 +65,7 @@ class Header extends React.Component<Props, State> {
                         <Name
                             text="Jonathan"
                             type="header"
-                            className="dn dib-ns"
+                            className="dn dib-ns pt3"
                         />
                     )}
                     {!isHomePage && (
@@ -74,7 +74,7 @@ class Header extends React.Component<Props, State> {
                             placeholder="Search (Browse for now)"
                         />
                     )}
-                    <div className="flex items-center pl2 pl4-l justify-between f6">
+                    <div className="flex items-center pl2 pl4-l justify-between f6 pt3">
                         {isHomePage && (
                             <StyledLink
                                 color="black"
@@ -83,7 +83,7 @@ class Header extends React.Component<Props, State> {
                                 text="Projects"
                             />
                         )}
-                        <div className="w4 flex justify-around">
+                        <div className="w4 flex items-center justify-around">
                             <Hamburger
                                 className={'arrowContainer'}
                                 toggleDropdown={this.toggleDropdown}

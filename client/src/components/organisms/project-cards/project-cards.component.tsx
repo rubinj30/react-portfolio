@@ -92,7 +92,7 @@ const seedProjects = [
         github: 'https://github.com/rubinj30/react-portfolio',
         image: {
             name: react_portfolio,
-            style: 'br3'
+            style: 'phoneTop'
         },
         description: ''
     },
