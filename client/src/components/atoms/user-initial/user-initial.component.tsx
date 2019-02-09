@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import './user-initial.css';
 
 type Props = {
@@ -10,10 +11,12 @@ type Size = 'small' | 'large';
 
 export const UserInitial = ({ letter, size }: Props) => {
     return (
-        <div
-            className={`initial f3 flex justify-center items-center white br-100 ${size}`}
-        >
-            {letter}
-        </div>
+        <StyledLink link="/">
+            <div
+                className={`initial f3 flex justify-center items-center white br-100 ${size}`}
+            >
+                {letter}
+            </div>
+        </StyledLink>
     );
 };

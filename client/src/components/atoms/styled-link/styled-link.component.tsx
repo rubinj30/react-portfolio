@@ -5,7 +5,7 @@ import './styled-link.css';
 type Props = {
     link: string;
     text?: string;
-    hoverUnderline: boolean;
+    hoverUnderline?: boolean;
     color?: Color;
     children?: ReactNode;
     history?: any;
@@ -26,7 +26,7 @@ export const StyledLink = ({
     className
 }: Props) => {
     let style: any = '';
-    style =+ hoverUnderline ? 'underline-hover' : '';
+    style += hoverUnderline ? 'underline-hover' : '';
     if (link && link.startsWith('/')) {
         return (
             <Link

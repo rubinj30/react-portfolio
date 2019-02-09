@@ -62,11 +62,13 @@ class Header extends React.Component<Props, State> {
                     )}
                     {/* if not on the homepage the search bar should show in the header */}
                     {!isHomePage && (
-                        <Name
-                            text="Jonathan"
-                            type="header"
-                            className="dn dib-ns pt3"
-                        />
+                        <StyledLink link="/">
+                            <Name
+                                text="Jonathan"
+                                type="header"
+                                className="dn dib-ns pt3"
+                            />
+                        </StyledLink>
                     )}
                     {!isHomePage && (
                         <Search
