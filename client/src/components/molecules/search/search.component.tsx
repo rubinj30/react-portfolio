@@ -106,8 +106,9 @@ export class Search extends Component<Props, State> {
     };
 
     scrollToElement = () => {
-        const searchContainer = document.getElementById('searchWrapper');
-        searchContainer && searchContainer.scrollIntoView();
+        const searchContainer = document.getElementById('searchWrapperID');
+        searchContainer &&
+            searchContainer.scrollIntoView();
     };
 
     render() {
@@ -119,7 +120,10 @@ export class Search extends Component<Props, State> {
         } = this.state;
         const { placeholder } = this.props;
         return (
-            <div id="searchWrapper" className={`searchWrapper ${true ? 'pt3' : 'pt0'}`}>
+            <div
+                id="searchWrapperID"
+                className={`searchContainer ${true ? 'pt3' : 'pt0'}`}
+            >
                 <div
                     // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
                     className={`innerWrapper relative ${!areResultsShowing &&
@@ -144,6 +148,7 @@ export class Search extends Component<Props, State> {
                             scrollToElement={this.scrollToElement}
                             // TODO: seeds for now, but eventually this will pull from DB
                             searchResults={seeds}
+                            closeResults={this.closeResults}
                         />
                     )}
                     {notFound.showing && <NotFound text={notFound.text} />}

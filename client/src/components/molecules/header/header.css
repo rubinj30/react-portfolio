@@ -12,3 +12,7 @@
     padding-left: 20px;
     width: 220px;
 }
+
+.arrowContainer {
+    position: relative;
+}

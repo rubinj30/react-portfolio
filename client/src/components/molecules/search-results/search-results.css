@@ -1,0 +1,13 @@
+.searchResultsContainer {
+    outline: 0;
+    max-width: 484px;
+    width: 100%;
+    background: white;
+    z-index: 3;
+}
+
+.searchResultsDropdown {
+    width: 100%;
+    max-width: 484px;
+    top: 0px;;
+}

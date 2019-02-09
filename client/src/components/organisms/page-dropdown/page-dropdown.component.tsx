@@ -53,41 +53,47 @@ export const PagesDropdown = ({
     toggleDropdown
 }: Props) => {
     return (
-        <Dropdown setRef={setRef} handleClickOutside={handleClickOutside}>
-            <DropdownSquare
-                title="Projects"
-                icon={<FaLaptopCode color={'red'} />}
-                toggleDropdown={toggleDropdown}
-            />
-            <DropdownSquare
-                title="About"
-                icon={<FaSmile color="#FBD043" />}
-                toggleDropdown={toggleDropdown}
-            />
-            <DropdownSquare
-                title="Contact"
-                icon={<FaEnvelope color="green" />}
-                toggleDropdown={toggleDropdown}
-            />
-            <DropdownSquare
-                link="https://github.com/rubinj30"
-                title="GitHub"
-                icon={<FaGithub />}
-                toggleDropdown={toggleDropdown}
-            />
-            <DropdownSquare
-                link="https://www.linkedin.com/in/jonathan-rubin/"
-                title="LinkedIn"
-                icon={<FaLinkedin color="0077B5" />}
-                toggleDropdown={toggleDropdown}
-            />
-            <DropdownSquare
-                link="/"
-                title="Search"
-                className={'initialContainer'}
-                icon={<UserInitial letter="J" size="large" />}
-                toggleDropdown={toggleDropdown}
-            />
+        <Dropdown
+            setRef={setRef}
+            handleClickOutside={handleClickOutside}
+            className="pagesDropdownContainer"
+        >
+            <div className="pagesDropdown">
+                <DropdownSquare
+                    title="Projects"
+                    icon={<FaLaptopCode color={'red'} />}
+                    toggleDropdown={toggleDropdown}
+                />
+                <DropdownSquare
+                    title="About"
+                    icon={<FaSmile color="#FBD043" />}
+                    toggleDropdown={toggleDropdown}
+                />
+                <DropdownSquare
+                    title="Contact"
+                    icon={<FaEnvelope color="green" />}
+                    toggleDropdown={toggleDropdown}
+                />
+                <DropdownSquare
+                    link="https://github.com/rubinj30"
+                    title="GitHub"
+                    icon={<FaGithub />}
+                    toggleDropdown={toggleDropdown}
+                />
+                <DropdownSquare
+                    link="https://www.linkedin.com/in/jonathan-rubin/"
+                    title="LinkedIn"
+                    icon={<FaLinkedin color="0077B5" />}
+                    toggleDropdown={toggleDropdown}
+                />
+                <DropdownSquare
+                    link="/"
+                    title="Search"
+                    className={'initialContainer'}
+                    icon={<UserInitial letter="J" size="large" />}
+                    toggleDropdown={toggleDropdown}
+                />
+            </div>
         </Dropdown>
     );
 };
