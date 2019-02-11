@@ -1,8 +1,8 @@
 import React from 'react';
 import { Input } from '../../atoms/input/input.component';
 import { Button } from '../../atoms/button/button.component';
-import { Dropdown } from '../dropdown/dropdown.component';
-import './search-results.css';
+import { Dropdown } from '../../molecules/dropdown/dropdown.component';
+import './search-dropdown.css';
 
 type Props = {
     handleResultMouseEnter: Function;
@@ -21,7 +21,7 @@ type State = {
     isSearchDropdownOpen: boolean;
 };
 
-export class SearchResults extends React.Component<Props, State> {
+export class SearchDropdown extends React.Component<Props, State> {
     state = {
         isSearchDropdownOpen: false
     };
@@ -58,10 +58,10 @@ export class SearchResults extends React.Component<Props, State> {
             <Dropdown
                 setRef={this.setRef}
                 handleClickOutside={this.handleClickOutside}
-                className="searchResultsDropdown"
+                className="searchDropdown"
             >
                 <div
-                    className={`searchResultsContainer`}
+                    className={`SearchDropdownContainer`}
                     id="searchWrapperID"
                 >
                     <Input

@@ -77,14 +77,14 @@ class Header extends React.Component<Props, State> {
                         />
                     )}
                     <div className="flex items-center pl2 pl4-l justify-between f6 pt3">
-                        {isHomePage && (
-                            <StyledLink
-                                color="black"
-                                hoverUnderline={true}
-                                link={'/projects'}
-                                text="Projects"
-                            />
-                        )}
+                        {/* {isHomePage && ( */}
+                        <StyledLink
+                            color="black"
+                            hoverUnderline={true}
+                            link={'/projects'}
+                            text="Projects"
+                        />
+                        {/* )} */}
                         <div className="w4 flex items-center justify-around">
                             <Hamburger
                                 className={'arrowContainer'}

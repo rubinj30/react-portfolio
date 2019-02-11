@@ -14,4 +14,16 @@ For now, it is only a React (with CRA) front-end. The projects are all in a JSON
 4. GraphQL with Apollo Client - I've done a lot of work with Apollo queries and mutations, but want to be more familiar with writing GraphQL resolvers and testing them
 5. Fully-functional Search feature that will return different results after each key press based on the input text matching keywords associated with each project
 6. Fully cover the project with effective unit tests and integration tests
-7. Voice to text for search... just because Google has it and it would be fun to implement
+7. Make more accessible
+8. Look into additional tooling (lighthouse, sonarqube, docker)
+9. Implement webpack instead of CRA
+9. Voice to text for search... just because Google has it and it would be fun to implement
+
+### Bugs
+1. on large screen the _under construction_ blurb is off-center
+2. a search with no results after Enter does not appear in a dropdown
+    - if you hit Enter a 2nd time, then it will give a different error
+3. should be able to tab thru options on search dropdown and PagesDropdown
+4. Review on Windows
+5. spacing for items in header on mobile
+6. Search Button at bottom of results will take to projects as it seems to move hoveredIndex to 0?

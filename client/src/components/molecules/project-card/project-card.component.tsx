@@ -25,7 +25,7 @@ export const ProjectCard = ({
         <Card title={name}>
             <div className="flex flex-column items-center">
                 <img
-                    alt="example photo of project"
+                    alt={name}
                     className={`w-90 h-100 mb2 cardImg ${image.style}`}
                     src={image.name}
                 />

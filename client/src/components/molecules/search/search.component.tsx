@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SearchResults } from '../search-results/search-results.component';
+import { SearchDropdown } from '../../organisms/search-dropdown/search-dropdown.component';
 import { Input } from '../../atoms/input/input.component';
 import { seeds } from './seeds';
 import './search.css';
@@ -59,15 +59,12 @@ export class Search extends Component<Props, State> {
 
     takeToResult = () => {
         const { searchText, hoveredIndex, results } = this.state;
-        console.log('running take to results');
         if (hoveredIndex >= 0) {
-            console.log('since hovInd is >= 0, going to hovered item');
             window.location.assign(results[hoveredIndex].link);
         } else {
             this.closeResults();
             this.setState({
-                notFound: { text: searchText, showing: true },
-                searchText: ''
+                notFound: { text: searchText, showing: true }
             });
         }
     };
@@ -107,8 +104,7 @@ export class Search extends Component<Props, State> {
 
     scrollToElement = () => {
         const searchContainer = document.getElementById('searchWrapperID');
-        searchContainer &&
-            searchContainer.scrollIntoView();
+        searchContainer && searchContainer.scrollIntoView();
     };
 
     render() {
@@ -137,7 +133,7 @@ export class Search extends Component<Props, State> {
                         placeholder={placeholder}
                     />
                     {areResultsShowing && (
-                        <SearchResults
+                        <SearchDropdown
                             handleResultClick={this.handleResultClick}
                             handleChange={this.handleChange}
                             handleKeyUp={this.handleKeyUp}

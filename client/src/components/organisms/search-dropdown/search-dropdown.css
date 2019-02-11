@@ -1,4 +1,4 @@
-.searchResultsContainer {
+.SearchDropdownContainer {
     outline: 0;
     max-width: 484px;
     width: 100%;
@@ -6,7 +6,7 @@
     z-index: 3;
 }
 
-.searchResultsDropdown {
+.searchDropdown {
     width: 100%;
     max-width: 484px;
     top: 0px;;
