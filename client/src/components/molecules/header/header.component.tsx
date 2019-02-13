@@ -77,6 +77,7 @@ class Header extends React.Component<Props, State> {
                         />
                     )}
                     <div className="flex items-center pl2 pl4-l justify-between f6 pt3">
+                        {/* CURRENTLY ALWAYS SHOWING PROJECTS ON HOMEPAGE */}
                         {/* {isHomePage && ( */}
                         <StyledLink
                             color="black"
@@ -85,22 +86,22 @@ class Header extends React.Component<Props, State> {
                             text="Projects"
                         />
                         {/* )} */}
-                        <div className="w4 flex items-center justify-around">
-                            <Hamburger
-                                className={'arrowContainer'}
-                                toggleDropdown={this.toggleDropdown}
+                        {/* <div className="w4 flex items-center justify-around"> */}
+                        <Hamburger
+                            className={'arrowContainer'}
+                            toggleDropdown={this.toggleDropdown}
+                            setRef={this.setRef}
+                            isPagesDropdownOpen={isPagesDropdownOpen}
+                        />
+                        {isPagesDropdownOpen && (
+                            <PagesDropdown
                                 setRef={this.setRef}
-                                isPagesDropdownOpen={isPagesDropdownOpen}
+                                handleClickOutside={this.handleClickOutside}
+                                toggleDropdown={this.toggleDropdown}
                             />
-                            {isPagesDropdownOpen && (
-                                <PagesDropdown
-                                    setRef={this.setRef}
-                                    handleClickOutside={this.handleClickOutside}
-                                    toggleDropdown={this.toggleDropdown}
-                                />
-                            )}
-                            <UserInitial letter="J" size="small" />
-                        </div>
+                        )}
+                        <UserInitial letter="J" size="small" />
+                        {/* </div> */}
                     </div>
                 </div>
             </div>
