@@ -76,7 +76,7 @@ class Header extends React.Component<Props, State> {
                             placeholder="Search (Browse for now)"
                         />
                     )}
-                    <div className="flex items-center pl2 pl4-l justify-between f6 pt3">
+                    <div className="flex items-center pl2 pl4-l justify-between f6 pt3 w4 w5-l">
                         {/* CURRENTLY ALWAYS SHOWING PROJECTS ON HOMEPAGE */}
                         {/* {isHomePage && ( */}
                         <StyledLink
