@@ -18,7 +18,7 @@ export const Input = ({
     onFocus
 }: Props) => {
     return (
-        <div className={`${className}`} id="inputContainer">
+        <div className={className} id="inputContainer">
             <input
                 value={value}
                 placeholder={placeholder}

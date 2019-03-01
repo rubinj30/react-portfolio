@@ -40,11 +40,11 @@ export class ProjectCards extends React.Component<Props, State> {
         return (
             <div className="flex justify-center">
                 <div className="flex flex-wrap justify-center">
-                    {seedProjects.map((project, i) => {
+                    {seedProjects.map(project => {
                         return (
                             project && (
                                 <ProjectCard
-                                    key={i}
+                                    key={project.name}
                                     name={project.name}
                                     link={project.link}
                                     github={project.github}
@@ -94,7 +94,8 @@ const seedProjects = [
             name: react_portfolio,
             style: 'phoneTop'
         },
-        description: 'I wanted to keep the style simple, have it stand out, but also be able to use as a playground for testing out and showing off new tools and features. I plan on adding Apollo Client to fetch data from GraphQL resolvers (projects being the data), tests with Jest and Kent C. Dodds new "react-testing-library", and more.'
+        description:
+            'I wanted to keep the style simple, have it stand out, but also be able to use as a playground for testing out and showing off new tools and features. I plan on adding Apollo Client to fetch data from GraphQL resolvers (projects being the data), tests with Jest and Kent C. Dodds new "react-testing-library", and more.'
     },
     {
         name: 'Partner-in-climb',

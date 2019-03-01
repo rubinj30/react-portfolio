@@ -60,10 +60,7 @@ export class SearchDropdown extends React.Component<Props, State> {
                 handleClickOutside={this.handleClickOutside}
                 className="searchDropdown"
             >
-                <div
-                    className={`SearchDropdownContainer`}
-                    id="searchWrapperID"
-                >
+                <div className={`SearchDropdownContainer`} id="searchWrapperID">
                     <Input
                         value={searchText}
                         handleKeyUp={handleKeyUp}
@@ -74,7 +71,7 @@ export class SearchDropdown extends React.Component<Props, State> {
                         {searchResults.map((result, i) => {
                             return (
                                 <div
-                                    key={i}
+                                    key={result.text}
                                     onMouseEnter={handleResultMouseEnter(i)}
                                     onClick={() => handleResultClick(i)}
                                     className={`result ${
