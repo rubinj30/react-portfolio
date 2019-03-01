@@ -6,7 +6,8 @@ import './home-page.css';
 export const HomePage = () => {
     return (
         <div className="flex flex-column items-center heightForScroll">
-            <Name className="pt5 pb2" text="Jonathan" type="main" />
+            <div className="pt5">Hi! My name is</div>
+            <Name className="pb2" text="Jonathan" type="main" />
             <Search placeholder="Search here (Browse for now)" />
             <div className="pt5 w-90 w-70-l f7 flex justify-center">
                 <p>

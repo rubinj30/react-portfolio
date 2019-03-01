@@ -88,13 +88,13 @@ const seedProjects = [
     },
     {
         name: 'Portfolio',
-        link: 'https://jonathanrubin.herokuapp.com/',
+        link: 'www.j-rubin.com',
         github: 'https://github.com/rubinj30/react-portfolio',
         image: {
             name: react_portfolio,
             style: 'phoneTop'
         },
-        description: ''
+        description: 'I wanted to keep the style simple, have it stand out, but also be able to use as a playground for testing out and showing off new tools and features. I plan on adding Apollo Client to fetch data from GraphQL resolvers (projects being the data), tests with Jest and Kent C. Dodds new "react-testing-library", and more.'
     },
     {
         name: 'Partner-in-climb',
