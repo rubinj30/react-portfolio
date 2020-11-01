@@ -8,25 +8,25 @@ import { Contact } from './components/pages/contact/contact.component';
 import './App.css';
 
 type State = {
-    isPagesDropdownOpen: boolean;
+  isPagesDropdownOpen: boolean;
 };
 
 class App extends Component<{}, State> {
-    render() {
-        return (
-            <Router>
-                <div>
-                    <Route component={Header} />
-                    <Switch>
-                        <Route exact path="/" component={HomePage} />
-                        <Route exact path="/projects" component={Projects} />
-                        <Route exact path="/about" component={About} />
-                        <Route exact path="/contact" component={Contact} />
-                    </Switch>
-                </div>
-            </Router>
-        );
-    }
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route component={Header} />
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route exact path='/projects' component={Projects} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/contact' component={Contact} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

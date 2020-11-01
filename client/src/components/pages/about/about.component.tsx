@@ -5,29 +5,23 @@ import { Card } from '../../molecules/card/card.component';
 import { Title } from '../../atoms/title/title.component';
 import './about.css';
 
+const BIO = 'I am a full-stack developer based in Atlanta, GA';
+
 export const About = () => {
-    return (
-        <div className="flex justify-center">
-            <div className="flex flex-column justify-center items-center w-90 w-70-l">
-                <FullName type="page" className="pt4 pb3" />
-                <div className="pb4 flex flex-column items-start flex-row-ns items-center items-start-ns justify-center-ns">
-                    <Card className="profilePic">
-                        <img src={Picture} alt={'Photo of Jonathan Rubin'} />
-                    </Card>
-                    <div className="w-90 w-60-ns mv4-ns">
-                        <Title className="mv0" text="About Me" />
-                        <p className="lh-copy">
-                            I am a full-stack developer based in Atlanta, GA. I
-                            work at Supply.com rebuilding the front-end of the
-                            e-commerce website with React, Typescript,
-                            GraphQL/Apollo, and Jest/Enzyme. When I'm not
-                            writing or reading about coding, I am usually
-                            hanging out with my fiancé or rock climbing around
-                            the Southeast.
-                        </p>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className='flex justify-center'>
+      <div className='flex flex-column justify-center items-center w-90 w-70-l'>
+        <FullName type='page' className='pt4 pb3' />
+        <div className='pb4 flex flex-column items-start flex-row-ns items-center items-start-ns justify-center-ns'>
+          <Card className='profilePic'>
+            <img src={Picture} alt={'Photo of Jonathan Rubin'} />
+          </Card>
+          <div className='w-90 w-60-ns mv4-ns'>
+            <Title className='mv0' text='About Me' />
+            <p className='lh-copy'>{BIO}</p>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };

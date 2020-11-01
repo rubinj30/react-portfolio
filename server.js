@@ -7,18 +7,18 @@ const bodyParser = require('body-parser');
 // Database setup
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true
+  useNewUrlParser: true,
+  useCreateIndex: true,
 });
 
 const connection = mongoose.connection;
 
 connection.on('open', () => {
-    console.log('Mongoose Connected Successfully');
+  console.log('Mongoose Connected Successfully');
 });
 
-connection.on('error', error => {
-    console.log(error);
+connection.on('error', (error) => {
+  console.log(error);
 });
 
 const app = express();
@@ -30,11 +30,11 @@ const ProjectsController = require('./routes/projects');
 app.use('/api/projects', ProjectsController);
 
 app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/client/build/index.html');
+  res.sendFile(__dirname + '/client/build/index.html');
 });
 
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-    console.log('App is up and running on port ' + PORT);
+  console.log('App is up and running on port ' + PORT);
 });
