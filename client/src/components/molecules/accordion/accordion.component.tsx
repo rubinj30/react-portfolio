@@ -2,71 +2,63 @@ import React, { Component } from 'react';
 import './accordion.css';
 
 type Props = {
-    title: string;
-    children?: any;
+  title: string;
+  children?: any;
 };
 
 type State = {
-    selected: string;
+  selected: string;
 };
 
 export class Accordion extends Component<Props, State> {
-    state = {
-        selected: ''
-    };
+  state = {
+    selected: '',
+  };
 
-    toggle = (e: React.MouseEvent<any>) => {
-        if (this.state.selected) {
-            console.log('selected');
-        } else {
-            console.log('not selected');
-        }
-    };
-
-    render() {
-        const { title } = this.props;
-        const { selected } = this.state;
-        return this.props.children(this.toggle, selected, title);
+  toggle = (e: React.MouseEvent<any>) => {
+    if (this.state.selected) {
+      console.log('selected');
+    } else {
+      console.log('not selected');
     }
+  };
+
+  render() {
+    const { title } = this.props;
+    const { selected } = this.state;
+    return this.props.children(this.toggle, selected, title);
+  }
 }
 
 export const ProjectAccordion = () => {
-    return (
-        <Accordion title={'Projects'}>
-            {({ toggle, selected, title }) => {
-                return (
-                    <div className={`accordion`}>
-                        <div>{title} Title</div>
-                        <div>test</div> <div>test</div>
-                        <AccordionSection
-                            image={'https://www.placecage.com/200/300'}
-                            title={'Blackjack'}
-                            selected={selected}
-                        />
-                        <AccordionSection
-                            image={'https://www.placecage.com/200/300'}
-                            title={'Blackjack'}
-                            selected={selected}
-                        />
-                    </div>
-                );
-            }}
-        </Accordion>
-    );
+  return (
+    <Accordion title={'Projects'}>
+      {({ toggle, selected, title }) => {
+        return (
+          <div className={`accordion`}>
+            <div>{title} Title</div>
+            <div>test</div> <div>test</div>
+            <AccordionSection image={'https://www.placecage.com/200/300'} title={'Blackjack'} selected={selected} />
+            <AccordionSection image={'https://www.placecage.com/200/300'} title={'Blackjack'} selected={selected} />
+          </div>
+        );
+      }}
+    </Accordion>
+  );
 };
 
 type SectionProps = {
-    selected: string;
-    title: string;
-    image: string;
-    className?: string;
+  selected: string;
+  title: string;
+  image: string;
+  className?: string;
 };
 
 export const AccordionSection = ({ selected, title }: SectionProps) => {
-    return (
-        <div className="ba b--gray">
-            <div>{title}</div>
-            <div>section content goes right here</div>
-        </div>
-    );
+  return (
+    <div className='ba b--gray'>
+      <div>{title}</div>
+      <div>section content goes right here</div>
+    </div>
+  );
 };

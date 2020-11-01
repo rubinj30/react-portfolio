@@ -1,29 +1,53 @@
 {
-    "name": "react-portfolio-site",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "engines": {
-        "node": "11.1.0"
-    },
-    "scripts": {
-        "start": "node server.js",
-        "dev": "concurrently \"npm start\" \"cd client && npm start\"",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "cd client && npm i && npm run build"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.18.3",
-        "concurrently": "^4.1.0",
-        "dotenv": "^6.2.0",
-        "express": "^4.16.4",
-        "mongoose": "^5.4.9",
-        "nodemon": "^1.18.9"
-    },
-    "devDependencies": {
-        "@types/node": "^10.12.21"
-    }
+  "name": "react-portfolio-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "engines": {
+    "node": "15.0.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "concurrently \"npm start\" \"cd client && npm start\"",
+    "lint": "eslint client/src --ext .ts,.tsx --fix && npm run prettify",
+    "prettify": "yarn prettier \"**/*.*(js|jsx|ts|tsx)\" --ignore-path=.prettierignore --write",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && npm i && npm run build"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^5.3.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.10.11",
+    "nodemon": "^2.0.6",
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.21",
+    "@typescript-eslint/eslint-plugin": "^2.32.0",
+    "@typescript-eslint/parser": "^2.32.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.10.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.1",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.0.5"
+  }
 }
