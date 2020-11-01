@@ -14,7 +14,7 @@ export const About = () => {
         <FullName type='page' className='pt4 pb3' />
         <div className='pb4 flex flex-column items-start flex-row-ns items-center items-start-ns justify-center-ns'>
           <Card className='profilePic'>
-            <img src={Picture} alt={'Photo of Jonathan Rubin'} />
+            <img src={Picture} alt='Jonathan Rubin' />
           </Card>
           <div className='w-90 w-60-ns mv4-ns'>
             <Title className='mv0' text='About Me' />

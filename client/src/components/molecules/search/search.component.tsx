@@ -140,4 +140,6 @@ export class Search extends Component<Props, State> {
 
 // TODO: use this similar to input in resultsContainer
 // make resultsContainer its own atom!
-const NotFound = ({ text }) => <div className='br1 pa3 absolute resultsContainer'>There are no results matching {text ? `for "${text}"` : ''}</div>;
+const NotFound = ({ text }) => (
+  <div className='br1 pa3 absolute resultsContainer'>There are no results matching {text ? `for "${text}"` : ''}</div>
+);

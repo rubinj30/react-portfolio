@@ -50,7 +50,13 @@ export const PagesDropdown = ({ setRef, handleClickOutside, toggleDropdown }: Pr
           icon={<FaLinkedin color='0077B5' />}
           toggleDropdown={toggleDropdown}
         />
-        <DropdownSquare link='/' title='Search' className={'initialContainer'} icon={<UserInitial letter='J' size='large' />} toggleDropdown={toggleDropdown} />
+        <DropdownSquare
+          link='/'
+          title='Search'
+          className={'initialContainer'}
+          icon={<UserInitial letter='J' size='large' />}
+          toggleDropdown={toggleDropdown}
+        />
       </div>
     </Dropdown>
   );

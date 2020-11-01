@@ -33,23 +33,13 @@ export class ProjectCards extends React.Component<Props, State> {
 
   render() {
     // TODO: use this on projects page. Eventually going to fetch with Apollo query
-    // const { projects } = this.state;
+    const { projects } = this.state;
     return (
       <div className='flex justify-center'>
         <div className='flex flex-wrap justify-center'>
           {seedProjects.map((project) => {
-            return (
-              project && (
-                <ProjectCard
-                  key={project.name}
-                  name={project.name}
-                  link={project.link}
-                  github={project.github}
-                  image={project.image}
-                  description={project.description}
-                />
-              )
-            );
+            const { name, link, github, image, description } = project;
+            return project && <ProjectCard key={name} name={name} link={link} github={github} image={image} description={description} />;
           })}
         </div>
       </div>
@@ -113,6 +103,7 @@ const seedProjects = [
       name: jb_card,
       style: 'br3',
     },
-    description: 'This was the first web app I ever built. It is a fully-functioning version of Blackjack, complete with betting. I made it with jQuery.',
+    description:
+      'This was the first web app I ever built. It is a fully-functioning version of Blackjack, complete with betting. I made it with jQuery.',
   },
 ];

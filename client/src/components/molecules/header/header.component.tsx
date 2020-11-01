@@ -66,8 +66,15 @@ class Header extends React.Component<Props, State> {
             <StyledLink color='black' hoverUnderline={true} link={'/projects'} text='Projects' />
             {/* )} */}
             {/* <div className="w4 flex items-center justify-around"> */}
-            <Hamburger className={'arrowContainer'} toggleDropdown={this.toggleDropdown} setRef={this.setRef} isPagesDropdownOpen={isPagesDropdownOpen} />
-            {isPagesDropdownOpen && <PagesDropdown setRef={this.setRef} handleClickOutside={this.handleClickOutside} toggleDropdown={this.toggleDropdown} />}
+            <Hamburger
+              className={'arrowContainer'}
+              toggleDropdown={this.toggleDropdown}
+              setRef={this.setRef}
+              isPagesDropdownOpen={isPagesDropdownOpen}
+            />
+            {isPagesDropdownOpen && (
+              <PagesDropdown setRef={this.setRef} handleClickOutside={this.handleClickOutside} toggleDropdown={this.toggleDropdown} />
+            )}
             <UserInitial letter='J' size='small' />
             {/* </div> */}
           </div>
