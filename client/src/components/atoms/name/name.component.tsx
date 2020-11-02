@@ -10,8 +10,8 @@ export const Name = ({ text, type, className }: { text: string; type?: Type; cla
 
   return (
     <div className={`${fontType} ${className} pa2`}>
-      {text.split('').map((letter, i) => (
-        <Letter key={i} text={letter} color={colors[i]} />
+      {text.split('')?.map((letter, i) => (
+        <Letter text={letter} color={colors[i]} />
       ))}
     </div>
   );

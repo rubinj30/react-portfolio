@@ -59,7 +59,7 @@ export class SearchDropdown extends React.Component<Props, State> {
         <div className={`SearchDropdownContainer`} id='searchWrapperID'>
           <Input value={searchText} handleKeyUp={handleKeyUp} handleChange={handleChange} onFocus={scrollToElement} />
           <div className={`bt b--light-gray`}>
-            {searchResults.map((result, i) => {
+            {searchResults?.map((result, i) => {
               return (
                 <div
                   key={result.text}

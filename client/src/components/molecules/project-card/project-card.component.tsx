@@ -14,7 +14,7 @@ export type ProjectType = {
   description: string;
 };
 
-export const ProjectCard = ({ name, link, github, image, description }: ProjectType) => {
+export const ProjectCard: React.FC<ProjectType> = ({ name, link, github, image, description }) => {
   return (
     <Card title={name}>
       <div className='flex flex-column items-center'>

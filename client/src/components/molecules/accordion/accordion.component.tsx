@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { FC, useState } from 'react';
 import './accordion.css';
 
 type Props = {
@@ -6,28 +6,19 @@ type Props = {
   children?: any;
 };
 
-type State = {
-  selected: string;
-};
+export const Accordion: FC<Props> = (props) => {
+  const [selected, setSelected] = useState<boolean>();
 
-export class Accordion extends Component<Props, State> {
-  state = {
-    selected: '',
-  };
-
-  toggle = (e: React.MouseEvent<any>) => {
-    if (this.state.selected) {
+  const toggle = (e: React.MouseEvent<any>) => {
+    if (selected) {
       console.log('selected');
     } else {
       console.log('not selected');
     }
   };
 
-  render() {
-    const { title } = this.props;
-    const { selected } = this.state;
-    return this.props.children(this.toggle, selected, title);
-  }
+  const { title } = props;
+  return props.children(toggle, selected, title);
 }
 
 export const ProjectAccordion = () => {

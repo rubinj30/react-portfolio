@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import connect4 from '../../../images/connect4-2.png';
 import jb_card from '../../../images/JB_card.jpg';
 import polaroid from '../../../images/polaroid2.png';
@@ -8,44 +8,31 @@ import { ProjectCard, ProjectType } from '../../molecules/project-card/project-c
 import axios from 'axios';
 import './project-cards.css';
 
-type Props = {
-  name?: string;
-};
+export const ProjectCards: React.FC<{ name?: string }> = (props) => {
+  const [projects, setProjects] = useState<ProjectType[]>([]);
 
-type State = {
-  projects: Array<ProjectType>;
-};
+  useEffect(() => {
+    getProjects();
+  }, [])
 
-export class ProjectCards extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { projects: [] };
-  }
-
-  componentDidMount() {
-    this.getProjects();
-  }
-
-  getProjects = async () => {
+  const getProjects = async () => {
     const { data } = await axios.get('/api/projects');
-    this.setState({ projects: data });
+    setProjects(data);
   };
 
-  render() {
-    // TODO: use this on projects page. Eventually going to fetch with Apollo query
-    const { projects } = this.state;
-    return (
-      <div className='flex justify-center'>
-        <div className='flex flex-wrap justify-center'>
-          {seedProjects.map((project) => {
-            const { name, link, github, image, description } = project;
-            return project && <ProjectCard key={name} name={name} link={link} github={github} image={image} description={description} />;
-          })}
-        </div>
+  // TODO: use this on projects page. Eventually this will pull from DB.
+  return (
+    <div className='flex justify-center'>
+      <div className='flex flex-wrap justify-center'>
+        {seedProjects?.map((project) => {
+          const { name, link, github, image, description } = project;
+          return <ProjectCard name={name} link={link} github={github} image={image} description={description} />;
+        })}
       </div>
-    );
-  }
+    </div>
+  );
 }
+
 const seedProjects = [
   {
     name: 'StockUp Investment Tracker',
