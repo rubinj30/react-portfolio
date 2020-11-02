@@ -16,23 +16,18 @@ type Props = {
   placeholder?: string;
 };
 
+// TODO: clean up key press logic and abstract into custom hooks if needed
 export const Search: FC<Props> = (props) => {
-  const [resultsShowing, setResultsShowing] = useState(false)
-  const [results, setResults] = useState<Result[]>([])
-  const [searchText, setSearchText] = useState('')
-  const [hoveredIndex, setHoveredIndex] = useState<number>(-1)
+  const [resultsShowing, setResultsShowing] = useState(false);
+  const [results, setResults] = useState<Result[]>(seeds);
+  const [searchText, setSearchText] = useState<string>('');
+  const [hoveredIndex, setHoveredIndex] = useState<number>(-1);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchText: string = e.currentTarget.value;
-    const areResultsShowing: boolean = searchText && searchText.length > 1 ? true : false;
-    setResultsShowing(areResultsShowing)
-    setSearchText(e.currentTarget.value)
-    // results(true)
-    // setState({
-    //   // searchText,
-    //   // resultsShowing,
-    //   // notFound: { showing: false, text: '' },
-    // });
+    const searchText = e.currentTarget.value;
+    const areResultsShowing = searchText.length > 1 ? true : false;
+    setResultsShowing(areResultsShowing);
+    setSearchText(e.currentTarget.value);
   };
 
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -47,44 +42,26 @@ export const Search: FC<Props> = (props) => {
       window.location.assign(results[hoveredIndex].link);
     } else {
       closeResults();
-
-      // setState({
-      //   notFound: { text: searchText, showing: true },
-      // });
     }
   };
 
   const closeResults = () => {
     setResultsShowing(false);
     setHoveredIndex(-1);
-    // setState({ resultsShowing: false, hoveredIndex: -1 });
   };
 
   const arrowDown = () => {
-    // setState(({ hoveredIndex }: { hoveredIndex: number }) => {
-    //   const newIndex = hoveredIndex < state.results.length - 1 ? hoveredIndex + 1 : 0;
-    //   return { hoveredIndex: newIndex };
-    // });
-    // TODO: probably need to fix, clean up types, and even combine with arrow up func
-    const newIndex = hoveredIndex && hoveredIndex < results.length ? hoveredIndex + 1 : 0;
-    setHoveredIndex(newIndex)
+    const newIndex = hoveredIndex < results.length ? hoveredIndex + 1 : 0;
+    setHoveredIndex(newIndex);
   };
 
   const arrowUp = () => {
-    const newIndex = hoveredIndex && hoveredIndex < results.length ? hoveredIndex - 1 : 0;
-    setHoveredIndex(newIndex)
-    // setState(({ hoveredIndex }: { hoveredIndex: number }) => {
-    //   const newIndex = hoveredIndex > 0 ? hoveredIndex - 1 : state.results.length - 1;
-    //   return { hoveredIndex: newIndex };
-    // });
-  };
-
-  const handleResultMouseEnter = (index) => () => {
-    setHoveredIndex(index)
+    const newIndex = hoveredIndex > 0 ? hoveredIndex - 1 : results.length - 1;
+    setHoveredIndex(newIndex);
   };
 
   const handleResultClick = async (index) => {
-    setHoveredIndex(index)
+    setHoveredIndex(index);
     takeToResult();
   };
 
@@ -103,7 +80,7 @@ export const Search: FC<Props> = (props) => {
         <Input
           handleKeyUp={handleKeyUp}
           handleChange={handleChange}
-          className={`${resultsShowing && 'z-0'}`}
+          className={resultsShowing ? 'z-0' : ''}
           onFocus={scrollToElement}
           placeholder={placeholder}
         />
@@ -113,7 +90,7 @@ export const Search: FC<Props> = (props) => {
             handleChange={handleChange}
             handleKeyUp={handleKeyUp}
             hoveredIndex={hoveredIndex}
-            handleResultMouseEnter={handleResultMouseEnter}
+            setHoveredIndex={setHoveredIndex}
             takeToResult={takeToResult}
             searchText={searchText}
             scrollToElement={scrollToElement}
@@ -122,13 +99,12 @@ export const Search: FC<Props> = (props) => {
             closeResults={closeResults}
           />
         )}
-
         {/* // TODO: */}
         {/* {notFound.showing && <NotFound text={notFound.text} />} */}
       </div>
     </div>
   );
-}
+};
 
 // TODO: use this similar to input in resultsContainer
 // make resultsContainer its own atom!

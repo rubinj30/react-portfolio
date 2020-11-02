@@ -5,7 +5,7 @@ import { Dropdown } from '../../molecules/dropdown/dropdown.component';
 import './search-dropdown.css';
 
 type Props = {
-  handleResultMouseEnter: Function;
+  setHoveredIndex: (index: number) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   hoveredIndex: number;
@@ -17,15 +17,7 @@ type Props = {
   closeResults: () => void;
 };
 
-type State = {
-  isSearchDropdownOpen: boolean;
-};
-
-export class SearchDropdown extends React.Component<Props, State> {
-  state = {
-    isSearchDropdownOpen: false,
-  };
-
+export class SearchDropdown extends React.Component<Props, {}> {
   public wrapRef;
   constructor(props) {
     super(props);
@@ -44,7 +36,7 @@ export class SearchDropdown extends React.Component<Props, State> {
 
   render() {
     const {
-      handleResultMouseEnter,
+      setHoveredIndex,
       handleChange,
       handleKeyUp,
       hoveredIndex,
@@ -56,17 +48,16 @@ export class SearchDropdown extends React.Component<Props, State> {
     } = this.props;
     return (
       <Dropdown setRef={this.setRef} handleClickOutside={this.handleClickOutside} className='searchDropdown'>
-        <div className={`SearchDropdownContainer`} id='searchWrapperID'>
+        <div className='searchDropdownContainer' id='searchWrapperID'>
           <Input value={searchText} handleKeyUp={handleKeyUp} handleChange={handleChange} onFocus={scrollToElement} />
           <div className={`bt b--light-gray`}>
             {searchResults?.map((result, i) => {
               return (
                 <div
                   key={result.text}
-                  onMouseEnter={handleResultMouseEnter(i)}
+                  onMouseEnter={() => setHoveredIndex(i)}
                   onClick={() => handleResultClick(i)}
-                  className={`result ${hoveredIndex === i ? 'grayBg' : ''}
-                    `}
+                  className={`result ${hoveredIndex === i ? 'grayBg' : ''}`}
                 >
                   {result.text}
                 </div>

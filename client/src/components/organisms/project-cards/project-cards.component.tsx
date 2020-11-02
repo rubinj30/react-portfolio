@@ -13,7 +13,7 @@ export const ProjectCards: React.FC<{ name?: string }> = (props) => {
 
   useEffect(() => {
     getProjects();
-  }, [])
+  }, []);
 
   const getProjects = async () => {
     const { data } = await axios.get('/api/projects');
@@ -31,7 +31,7 @@ export const ProjectCards: React.FC<{ name?: string }> = (props) => {
       </div>
     </div>
   );
-}
+};
 
 const seedProjects = [
   {

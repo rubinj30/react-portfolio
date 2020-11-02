@@ -21,6 +21,6 @@ const App: FC = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,5 @@
 
-.hamburger {
+.waffle {
     display: flex;
     flex-wrap: wrap;
     width: 30px;
@@ -10,11 +10,11 @@
     border-radius: 2px;
 }
 
-.hamburger:hover .hamburgerDot {
+.waffle:hover .waffleDot {
     background: black;
 }
 
-.hamburgerDot {
+.waffleDot {
     height: 4px;
     width: 4px;
     margin: 1px;
@@ -25,10 +25,9 @@
     border-color: transparent;
     border-style: dashed dashed solid;
     border-width: 0 8.5px 8.5px;
-    /* display: none; */
     position: absolute;
 
-    /* if hamburger shifts around, it can be shifted back here */
+    /* if waffle shifts around, it can be shifted back here */
     left: 10px;
     z-index: 5;
     height: 0;
@@ -43,7 +42,6 @@
     border-bottom-color: #fff;
     border-style: dashed dashed solid;
     border-width: 0 8.5px 8.5px;
-    /* display: none; */
     position: absolute;
     left: 10px;
     top: 40px;

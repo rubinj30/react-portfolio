@@ -19,7 +19,7 @@ export const Accordion: FC<Props> = (props) => {
 
   const { title } = props;
   return props.children(toggle, selected, title);
-}
+};
 
 export const ProjectAccordion = () => {
   return (
