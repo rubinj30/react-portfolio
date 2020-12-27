@@ -9,7 +9,7 @@ type Props = {
 
 type Size = 'small' | 'large';
 
-export const UserInitial = ({ letter, size }: Props) => {
+export const UserInitial: React.FC<Props> = ({ letter, size }) => {
   return (
     <StyledLink link='/'>
       <div className={`initial f3 flex justify-center items-center white br-100 ${size}`}>{letter}</div>

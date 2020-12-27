@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import connect4 from '../../../images/connect4-2.png';
 import jb_card from '../../../images/JB_card.jpg';
 import polaroid from '../../../images/polaroid2.png';
@@ -8,7 +8,7 @@ import { ProjectCard, ProjectType } from '../../molecules/project-card/project-c
 import axios from 'axios';
 import './project-cards.css';
 
-export const ProjectCards: React.FC<{ name?: string }> = (props) => {
+export const ProjectCards: FC<{ name?: string }> = (props) => {
   const [projects, setProjects] = useState<ProjectType[]>([]);
 
   useEffect(() => {
@@ -22,6 +22,7 @@ export const ProjectCards: React.FC<{ name?: string }> = (props) => {
 
   // TODO: use this on projects page. Eventually this will pull from DB.
   return (
+    
     <div className='flex justify-center'>
       <div className='flex flex-wrap justify-center'>
         {seedProjects?.map((project) => {

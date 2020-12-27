@@ -1,23 +1,19 @@
-import React, { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Dropdown } from '../../molecules/dropdown/dropdown.component';
 import { UserInitial } from '../../atoms/user-initial/user-initial.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import { FaLaptopCode, FaLinkedin, FaGithub, FaEnvelope, FaSmile } from 'react-icons/fa';
 import './page-dropdown.css';
 
-const DropdownSquare = ({
-  className,
-  title,
-  icon,
-  link,
-  toggleDropdown,
-}: {
+type DropdownSquareProps = {
   className?: string;
   title: string;
   icon: ReactNode;
   link?: string;
   toggleDropdown?: (e: React.MouseEvent<any>) => void;
-}) => {
+};
+
+export const DropdownSquare: FC<DropdownSquareProps> = ({ className, title, icon, link, toggleDropdown }) => {
   const iconLink = link ? link : `/${title.toLowerCase()}`;
   return (
     <StyledLink link={iconLink} hoverUnderline={false} color={'black'} handleClick={toggleDropdown}>
@@ -33,10 +29,10 @@ type Props = {
   setRef: any;
   toggleDropdown: (e: React.MouseEvent<any>) => void;
   handleClickOutside: any;
-  children?: any;
+  children?: ReactNode;
 };
 
-export const PagesDropdown = ({ setRef, handleClickOutside, toggleDropdown }: Props) => {
+export const PagesDropdown: FC<Props> = ({ setRef, handleClickOutside, toggleDropdown }) => {
   return (
     <Dropdown setRef={setRef} handleClickOutside={handleClickOutside} className='pagesDropdownContainer'>
       <div className='pagesDropdown'>

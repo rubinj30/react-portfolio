@@ -11,7 +11,7 @@ type Props = {
 
 export const Waffle: FC<Props> = (props) => {
   const { dropdownOpen, toggleDropdown, ref, className } = props;
-  
+
   // TODO: move to helper function
   const genWaffleIcon = () => {
     let waffle: React.ReactChild[] = [];

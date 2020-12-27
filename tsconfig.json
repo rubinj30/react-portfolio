@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": [
-      "es2017",
-      "esnext.array",
-      "dom"
-    ],
+    "lib": ["es2017", "esnext.array", "dom"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,19 +13,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
     "noImplicitAny": false,
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "src/**/*.test.tsx",
-    "node_modules",
-    "dist"
-  ]
+  "include": ["db", "routes"],
+  "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 type Props = {
   className?: string;
@@ -9,7 +9,7 @@ type Props = {
   onFocus?: any;
 };
 
-export const Input = ({ className, placeholder, value, handleChange, handleKeyUp, onFocus }: Props) => {
+export const Input: FC<Props> = ({ className, placeholder, value, handleChange, handleKeyUp, onFocus }) => {
   return (
     <div className={className} id='inputContainer'>
       <input value={value} placeholder={placeholder} onChange={handleChange} onKeyUp={handleKeyUp} onFocus={onFocus} />

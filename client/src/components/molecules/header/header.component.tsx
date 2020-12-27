@@ -11,14 +11,13 @@ import '../../../App.css';
 
 const Header: FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const waffleRef = useRef(null)
+  const waffleRef = useRef(null);
   // TODO: use useRef hook and get this working again, or figure out if there is a better way to to not use a ref
   //   public wrapRef;
   //   constructor(props) {
   //   super(props);
   //   wrapRef = React.createRef();
   // }
-
 
   const toggleDropdown = () => {
     // console.log('dropdownOpen', dropdownOpen)
@@ -28,7 +27,7 @@ const Header: FC = () => {
   const handleClickOutside = (event: React.MouseEvent) => {
     // @ts-ignore
     if (waffleRef && waffleRef.current && !waffleRef.current.contains(event.target)) {
-      console.log('OUTSIDE')
+      console.log('OUTSIDE');
       toggleDropdown();
     }
   };
@@ -36,7 +35,6 @@ const Header: FC = () => {
   const { pathname } = useLocation();
   const isHomePage = pathname === '/';
 
-  // console.log('open', dropdownOpen)
   return (
     <div className='w-100 h3 flex justify-center items-center mb3'>
       <div className='w-90 flex justify-between items-center'>
@@ -70,4 +68,3 @@ const Header: FC = () => {
 };
 
 export default withRouter<any>(Header);
-
