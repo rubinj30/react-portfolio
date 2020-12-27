@@ -1,8 +1,8 @@
-import React, { Component, ReactNode } from 'react';
+import { Component, ReactNode } from 'react';
 import './dropdown.css';
 
 type Props = {
-  setRef: any;
+  dropdownRef: any;
   handleClickOutside: any;
   children?: ReactNode;
   className?: string;
@@ -19,9 +19,9 @@ export class Dropdown extends Component<Props, {}> {
     document.removeEventListener('mousedown', this.props.handleClickOutside);
   }
   render() {
-    const { children, setRef, className } = this.props;
+    const { children, dropdownRef, className } = this.props;
     return (
-      <div className={`dropdownContainer absolute bg-white ${className}`} ref={setRef}>
+      <div className={`dropdownContainer absolute bg-white ${className}`} ref={dropdownRef}>
         {children}
       </div>
     );

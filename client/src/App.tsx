@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Header from './components/molecules/header/header.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { HomePage } from './components/pages/home-page/home-page.component';

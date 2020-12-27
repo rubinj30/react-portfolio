@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { Dropdown } from '../../molecules/dropdown/dropdown.component';
 import { UserInitial } from '../../atoms/user-initial/user-initial.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
@@ -26,15 +26,15 @@ export const DropdownSquare: FC<DropdownSquareProps> = ({ className, title, icon
 };
 
 type Props = {
-  setRef: any;
-  toggleDropdown: (e: React.MouseEvent<any>) => void;
+  waffleRef: any;
+  toggleDropdown: (e: React.MouseEvent) => void;
   handleClickOutside: any;
   children?: ReactNode;
 };
 
-export const PagesDropdown: FC<Props> = ({ setRef, handleClickOutside, toggleDropdown }) => {
+export const PagesDropdown: FC<Props> = ({ waffleRef, handleClickOutside, toggleDropdown }) => {
   return (
-    <Dropdown setRef={setRef} handleClickOutside={handleClickOutside} className='pagesDropdownContainer'>
+    <Dropdown dropdownRef={waffleRef} handleClickOutside={handleClickOutside} className='pagesDropdownContainer'>
       <div className='pagesDropdown'>
         <DropdownSquare title='Projects' icon={<FaLaptopCode color={'red'} />} toggleDropdown={toggleDropdown} />
         <DropdownSquare title='About' icon={<FaSmile color='#FBD043' />} toggleDropdown={toggleDropdown} />

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { FullName } from '../../atoms/name/name.component';
 import Picture from '../../../images/JonathanRubin.jpg';
 import { Card } from '../../molecules/card/card.component';

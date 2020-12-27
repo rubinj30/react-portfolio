@@ -1,16 +1,16 @@
-import React, { FC, useRef } from 'react';
+import { FC } from 'react';
 import './waffle.css';
 
 // TODO: remove any types
 type Props = {
   className?: string;
   toggleDropdown: () => void;
-  ref: any;
+  waffleRef: any;
   dropdownOpen: boolean;
 };
 
 export const Waffle: FC<Props> = (props) => {
-  const { dropdownOpen, toggleDropdown, ref, className } = props;
+  const { dropdownOpen, toggleDropdown, waffleRef, className } = props;
 
   // TODO: move to helper function
   const genWaffleIcon = () => {
@@ -18,14 +18,14 @@ export const Waffle: FC<Props> = (props) => {
 
     // only using for loop to generate static number of waffle dots
     for (let i = 0; i < 9; i++) {
-      waffle.push(<div className='waffleDot' />);
+      waffle.push(<div key={i} className='waffleDot' />);
     }
     return waffle;
   };
 
   return (
-    <div className={className} ref={ref} onClick={() => toggleDropdown()}>
-      <div className='waffle'>{genWaffleIcon()}</div>
+    <div className={className} onClick={() => toggleDropdown()}>
+      <div className='waffle' ref={waffleRef}>{genWaffleIcon()}</div>
       {dropdownOpen && (
         <>
           <div className='arrowTop' />

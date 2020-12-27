@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { withRouter, useLocation } from 'react-router-dom';
 import { Waffle } from '../../atoms/waffle/waffle.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
@@ -10,29 +10,25 @@ import './header.css';
 import '../../../App.css';
 
 const Header: FC = () => {
+  const { pathname } = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const waffleRef = useRef(null);
-  // TODO: use useRef hook and get this working again, or figure out if there is a better way to to not use a ref
-  //   public wrapRef;
-  //   constructor(props) {
-  //   super(props);
-  //   wrapRef = React.createRef();
-  // }
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
-    // console.log('dropdownOpen', dropdownOpen)
     setDropdownOpen(!dropdownOpen);
   };
 
   const handleClickOutside = (event: React.MouseEvent) => {
-    // @ts-ignore
-    if (waffleRef && waffleRef.current && !waffleRef.current.contains(event.target)) {
-      console.log('OUTSIDE');
+    if (refsContainsTarget([waffleRef, dropdownRef], event)) {
       toggleDropdown();
     }
   };
 
-  const { pathname } = useLocation();
+  const refsContainsTarget = (refs: any[], event: React.MouseEvent) => {
+    return refs.every(ref => !ref?.current.contains(event.target))
+  }
+
   const isHomePage = pathname === '/';
 
   return (
@@ -58,8 +54,8 @@ const Header: FC = () => {
           <StyledLink color='black' hoverUnderline={true} link={'/projects'} text='Projects' />
           {/* )} */}
           {/* <div className="w4 flex items-center just.ify-around"> */}
-          <Waffle className={'arrowContainer'} toggleDropdown={toggleDropdown} ref={waffleRef} dropdownOpen={dropdownOpen} />
-          {dropdownOpen && <PagesDropdown setRef={waffleRef} handleClickOutside={handleClickOutside} toggleDropdown={toggleDropdown} />}
+          <Waffle className={'arrowContainer'} toggleDropdown={toggleDropdown} waffleRef={waffleRef} dropdownOpen={dropdownOpen} />
+          {dropdownOpen && <PagesDropdown waffleRef={dropdownRef} handleClickOutside={handleClickOutside} toggleDropdown={toggleDropdown} />}
           <UserInitial letter='J' size='small' />
         </div>
       </div>

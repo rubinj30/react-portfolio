@@ -47,7 +47,7 @@ export class SearchDropdown extends React.Component<Props, {}> {
       scrollToElement,
     } = this.props;
     return (
-      <Dropdown setRef={this.setRef} handleClickOutside={this.handleClickOutside} className='searchDropdown'>
+      <Dropdown dropdownRef={this.setRef} handleClickOutside={this.handleClickOutside} className='searchDropdown'>
         <div className='searchDropdownContainer' id='searchWrapperID'>
           <Input value={searchText} handleKeyUp={handleKeyUp} handleChange={handleChange} onFocus={scrollToElement} />
           <div className={`bt b--light-gray`}>

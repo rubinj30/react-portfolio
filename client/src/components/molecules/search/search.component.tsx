@@ -1,7 +1,9 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { SearchDropdown } from '../../organisms/search-dropdown/search-dropdown.component';
 import { Input } from '../../atoms/input/input.component';
 import { seeds } from './seeds';
+import { SearchStyled } from './search.styles';
 import './search.css';
 
 type Result = {
@@ -18,6 +20,8 @@ type Props = {
 
 // TODO: clean up key press logic and abstract into custom hooks if needed
 export const Search: FC<Props> = (props) => {
+  const { push } = useHistory();
+  const { placeholder } = props;
   const [resultsShowing, setResultsShowing] = useState(false);
   const [results, setResults] = useState<Result[]>(seeds);
   const [searchText, setSearchText] = useState<string>('');
@@ -39,6 +43,7 @@ export const Search: FC<Props> = (props) => {
 
   const takeToResult = () => {
     if (hoveredIndex >= 0) {
+      // route to external link
       window.location.assign(results[hoveredIndex].link);
     } else {
       closeResults();
@@ -70,9 +75,9 @@ export const Search: FC<Props> = (props) => {
     searchContainer && searchContainer.scrollIntoView();
   };
 
-  const { placeholder } = props;
+
   return (
-    <div id='searchWrapperID' className={`searchContainer ${true ? 'pt3' : 'pt0'}`}>
+    <SearchStyled id='searchWrapperID'>
       <div
         // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
         className={`innerWrapper relative ${!resultsShowing && 'wrapperBox'}`}
@@ -102,7 +107,7 @@ export const Search: FC<Props> = (props) => {
         {/* // TODO: */}
         {/* {notFound.showing && <NotFound text={notFound.text} />} */}
       </div>
-    </div>
+    </SearchStyled>
   );
 };
 

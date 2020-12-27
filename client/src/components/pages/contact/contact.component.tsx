@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { FullName } from '../../atoms/name/name.component';
 import { StyledLink } from '../../atoms/styled-link/styled-link.component';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
