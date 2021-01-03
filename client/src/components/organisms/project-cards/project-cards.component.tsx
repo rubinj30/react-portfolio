@@ -11,18 +11,18 @@ import './project-cards.css';
 export const ProjectCards: FC<{ name?: string }> = (props) => {
   const [projects, setProjects] = useState<ProjectType[]>([]);
 
-  useEffect(() => {
-    getProjects();
-  }, []);
-
-  const getProjects = async () => {
-    const { data } = await axios.get('/api/projects');
-    setProjects(data);
-  };
+  // TODO: clear if not needed
+  // useEffect(() => {
+  // now getting these from github apis
+  // getProjects();
+  // }, []);
+  // const getProjects = async () => {
+  //   const { data } = await axios.get('/api/projects');
+  //   setProjects(data);
+  // };
 
   // TODO: use this on projects page. Eventually this will pull from DB.
   return (
-    
     <div className='flex justify-center'>
       <div className='flex flex-wrap justify-center'>
         {seedProjects?.map((project) => {

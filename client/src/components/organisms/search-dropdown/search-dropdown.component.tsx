@@ -5,16 +5,16 @@ import { Dropdown } from '../../molecules/dropdown/dropdown.component';
 import './search-dropdown.css';
 
 type Props = {
-  setHoveredIndex: (index: number) => void;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  searchText: string;
   hoveredIndex: number;
   handleResultClick: any;
-  takeToResult: () => void;
-  searchText: string;
   searchResults: any;
   scrollToElement: Function;
+  setHoveredIndex: (index: number) => void;
+  takeToResult: () => void;
   closeResults: () => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
 export class SearchDropdown extends React.Component<Props, {}> {
@@ -36,21 +36,23 @@ export class SearchDropdown extends React.Component<Props, {}> {
 
   render() {
     const {
-      setHoveredIndex,
-      handleChange,
-      handleKeyUp,
+
       hoveredIndex,
       handleResultClick,
-      takeToResult,
       searchText,
       searchResults,
       scrollToElement,
+      setHoveredIndex,
+      handleChange,
+      handleKeyUp,
+      takeToResult,
     } = this.props;
+
     return (
       <Dropdown dropdownRef={this.setRef} handleClickOutside={this.handleClickOutside} className='searchDropdown'>
         <div className='searchDropdownContainer' id='searchWrapperID'>
-          <Input value={searchText} handleKeyUp={handleKeyUp} handleChange={handleChange} onFocus={scrollToElement} />
-          <div className={`bt b--light-gray`}>
+          {/* <Input value={searchText} handleKeyUp={handleKeyUp} handleChange={handleChange} onFocus={scrollToElement} /> */}
+          <div>
             {searchResults?.map((result, i) => {
               return (
                 <div

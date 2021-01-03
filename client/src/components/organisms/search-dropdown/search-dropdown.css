@@ -1,13 +1,15 @@
 .searchDropdownContainer {
-    outline: 0;
-    max-width: 484px;
-    width: 100%;
-    background: white;
-    z-index: 3;
+  outline: 0;
+  max-width: 484px;
+  width: 100%;
+  background: white;
+  z-index: 3;
+  border-radius: 24px;
+  margin-top: 40px;
 }
 
 .searchDropdown {
-    width: 100%;
-    max-width: 484px;
-    top: 0px;;
+  width: 100%;
+  max-width: 484px;
+  top: 0;
 }

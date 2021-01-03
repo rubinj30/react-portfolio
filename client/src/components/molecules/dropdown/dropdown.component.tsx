@@ -21,7 +21,7 @@ export class Dropdown extends Component<Props, {}> {
   render() {
     const { children, dropdownRef, className } = this.props;
     return (
-      <div className={`dropdownContainer absolute bg-white ${className}`} ref={dropdownRef}>
+      <div className={`dropdownContainer ${className}`} ref={dropdownRef}>
         {children}
       </div>
     );

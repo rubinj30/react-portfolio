@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-type Props = {
+interface Props {
   className?: string;
   placeholder?: string;
   value?: string;
@@ -12,7 +12,7 @@ type Props = {
 export const Input: FC<Props> = ({ className, placeholder, value, handleChange, handleKeyUp, onFocus }) => {
   return (
     <div className={className} id='inputContainer'>
-      <input value={value} placeholder={placeholder} onChange={handleChange} onKeyUp={handleKeyUp} onFocus={onFocus} />
+      <input id="search-input" value={value} placeholder={placeholder} onChange={handleChange} onKeyUp={handleKeyUp} onFocus={onFocus} />
     </div>
   );
 };

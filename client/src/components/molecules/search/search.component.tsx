@@ -29,10 +29,9 @@ export const Search: FC<Props> = (props) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchText = e.currentTarget.value;
-    const areResultsShowing = searchText.length > 1 ? true : false;
+    const areResultsShowing = Boolean(searchText.length);
     setResultsShowing(areResultsShowing);
     setSearchText(e.currentTarget.value);
-  };
 
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.key === 'Escape' && closeResults();
@@ -75,17 +74,15 @@ export const Search: FC<Props> = (props) => {
     searchContainer && searchContainer.scrollIntoView();
   };
 
-
   return (
     <SearchStyled id='searchWrapperID'>
       <div
-        // if no results this container should have a box shadow, but if results are showing, the box-shadow wil be on that
-        className={`innerWrapper relative ${!resultsShowing && 'wrapperBox'}`}
+        className={`innerWrapper relative ${resultsShowing ? 'results-showing' : 'results-not-showing'}`}
       >
         <Input
           handleKeyUp={handleKeyUp}
           handleChange={handleChange}
-          className={resultsShowing ? 'z-0' : ''}
+          className={resultsShowing ? 'z-5' : ''}
           onFocus={scrollToElement}
           placeholder={placeholder}
         />
