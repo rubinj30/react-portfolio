@@ -26,8 +26,8 @@ const Header: FC = () => {
   };
 
   const refsContainsTarget = (refs: any[], event: React.MouseEvent) => {
-    return refs.every(ref => !ref?.current.contains(event.target))
-  }
+    return refs.every((ref) => !ref?.current.contains(event.target));
+  };
 
   const isHomePage = pathname === '/';
 
@@ -55,7 +55,9 @@ const Header: FC = () => {
           {/* )} */}
           {/* <div className="w4 flex items-center just.ify-around"> */}
           <Waffle className={'arrowContainer'} toggleDropdown={toggleDropdown} waffleRef={waffleRef} dropdownOpen={dropdownOpen} />
-          {dropdownOpen && <PagesDropdown waffleRef={dropdownRef} handleClickOutside={handleClickOutside} toggleDropdown={toggleDropdown} />}
+          {dropdownOpen && (
+            <PagesDropdown waffleRef={dropdownRef} handleClickOutside={handleClickOutside} toggleDropdown={toggleDropdown} />
+          )}
           <UserInitial letter='J' size='small' />
         </div>
       </div>

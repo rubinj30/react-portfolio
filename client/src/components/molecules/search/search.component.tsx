@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { SearchDropdown } from '../../organisms/search-dropdown/search-dropdown.component';
 import { Input } from '../../atoms/input/input.component';
 import { seeds } from './seeds';
@@ -20,7 +19,6 @@ type Props = {
 
 // TODO: clean up key press logic and abstract into custom hooks if needed
 export const Search: FC<Props> = (props) => {
-  const { push } = useHistory();
   const { placeholder } = props;
   const [resultsShowing, setResultsShowing] = useState(false);
   const [results, setResults] = useState<Result[]>(seeds);
@@ -32,6 +30,7 @@ export const Search: FC<Props> = (props) => {
     const areResultsShowing = Boolean(searchText.length);
     setResultsShowing(areResultsShowing);
     setSearchText(e.currentTarget.value);
+  };
 
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.key === 'Escape' && closeResults();
@@ -76,9 +75,7 @@ export const Search: FC<Props> = (props) => {
 
   return (
     <SearchStyled id='searchWrapperID'>
-      <div
-        className={`innerWrapper relative ${resultsShowing ? 'results-showing' : 'results-not-showing'}`}
-      >
+      <div className={`innerWrapper relative ${resultsShowing ? 'results-showing' : 'results-not-showing'}`}>
         <Input
           handleKeyUp={handleKeyUp}
           handleChange={handleChange}
@@ -110,6 +107,6 @@ export const Search: FC<Props> = (props) => {
 
 // TODO: use this similar to input in resultsContainer
 // make resultsContainer its own atom!
-const NotFound = ({ text }) => (
-  <div className='br1 pa3 absolute resultsContainer'>There are no results matching {text ? `for "${text}"` : ''}</div>
-);
+// const NotFound = ({ text }) => (
+//   <div className='br1 pa3 absolute resultsContainer'>There are no results matching {text ? `for "${text}"` : ''}</div>
+// );

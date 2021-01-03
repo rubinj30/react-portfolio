@@ -36,7 +36,6 @@ export class SearchDropdown extends React.Component<Props, {}> {
 
   render() {
     const {
-
       hoveredIndex,
       handleResultClick,
       searchText,

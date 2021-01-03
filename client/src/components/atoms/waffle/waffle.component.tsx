@@ -25,7 +25,9 @@ export const Waffle: FC<Props> = (props) => {
 
   return (
     <div className={className} onClick={() => toggleDropdown()}>
-      <div className='waffle' ref={waffleRef}>{genWaffleIcon()}</div>
+      <div className='waffle' ref={waffleRef}>
+        {genWaffleIcon()}
+      </div>
       {dropdownOpen && (
         <>
           <div className='arrowTop' />
