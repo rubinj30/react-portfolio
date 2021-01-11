@@ -22,8 +22,11 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jest/recommended",
         "prettier",
+        "prettier/react",
     ],
     "rules": {
         "indent": [
