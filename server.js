@@ -27,8 +27,11 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/client/build/'));
 
-const ProjectsController = require('./routes/projects');
-app.use('/api/projects', ProjectsController);
+const ReposController = require('./routes/repos');
+app.use('/api/repos', ReposController);
+
+// const ProjectsController = require('./routes/projects');
+// app.use('/api/projects', ProjectsController);
 
 app.get('*', (_req, res) => {
   res.sendFile(__dirname + '/client/build/index.html');
