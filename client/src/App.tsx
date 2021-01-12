@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import Header from './components/molecules/header/header.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { HomePage } from './components/pages/home-page/home-page.component';
@@ -6,8 +6,17 @@ import { Projects } from './components/pages/projects/projects.component';
 import { About } from './components/pages/about/about.component';
 import { Contact } from './components/pages/contact/contact.component';
 import './App.css';
+import axios from 'axios';
 
 const App: FC = () => {
+
+  useEffect(() => {
+    axios.get('/api/repos').then((data) => {
+
+      console.log({ data })
+    })
+  }, [])
+
   return (
     <Router>
       <div>
