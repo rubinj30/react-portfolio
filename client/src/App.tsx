@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Header from './components/molecules/header/header.component';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { HomePage } from './components/pages/home-page/home-page.component';
@@ -9,12 +9,33 @@ import './App.css';
 import axios from 'axios';
 
 const App: FC = () => {
+  const [repos, setRepos] = useState([]);
+
+  function geoFindMe() {
+    console.log("geoFindMe")
+    function success(position) {
+      // const latitude = position.coords.latitude;
+      // const longitude = position.coords.longitude;
+      console.log("HELLO", position)
+    }
+
+    function error() {
+      console.log("ERROR")
+    }
+
+    if (!navigator.geolocation) {
+      console.log("NO GEO LOCATION")
+    } else {
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
+  }
 
   useEffect(() => {
-    axios.get('/api/repos').then((data) => {
-
-      console.log({ data })
-    })
+    geoFindMe()
+    // if (!Boolean(repos.length))
+    //   axios.get('/api/repos').then((resp) => {
+    //     setRepos(resp.data)
+    //   });
   }, [])
 
   return (
