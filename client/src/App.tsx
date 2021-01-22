@@ -6,17 +6,17 @@ import { Projects } from './components/pages/projects/projects.component';
 import { About } from './components/pages/about/about.component';
 import { Contact } from './components/pages/contact/contact.component';
 import './App.css';
-import axios from 'axios';
+// import axios from 'axios';
 
 const App: FC = () => {
   const [repos, setRepos] = useState([]);
+  const [position, setPosition] = useState<any>();
 
   function geoFindMe() {
-    console.log("geoFindMe")
+    console.log('go find me');
     function success(position) {
-      // const latitude = position.coords.latitude;
-      // const longitude = position.coords.longitude;
-      console.log("HELLO", position)
+      console.log('coords', position.coords);
+      setPosition(position)
     }
 
     function error() {
@@ -24,10 +24,13 @@ const App: FC = () => {
     }
 
     if (!navigator.geolocation) {
-      console.log("NO GEO LOCATION")
+      console.log("no nav")
+      // status.textContent = 'Geolocation is not supported by your browser';
     } else {
+      // status.textContent = 'Locating…';
       navigator.geolocation.getCurrentPosition(success, error);
     }
+
   }
 
   useEffect(() => {
@@ -42,6 +45,8 @@ const App: FC = () => {
     <Router>
       <div>
         <Route component={Header} />
+        <div>{JSON.stringify(position)}</div>
+        <div>{position && position.coords}</div>
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/projects' component={Projects} />
